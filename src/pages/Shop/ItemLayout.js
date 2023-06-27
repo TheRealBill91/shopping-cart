@@ -2,13 +2,18 @@ import { useEffect } from "react";
 import { Item } from "./Item";
 
 export const ItemLayout = (props) => {
-    const { cartItems } = props;
-
-    console.log(cartItems);
+    const { watchData, addWatchToCart } = props;
 
     return (
-        <section>
-            {cartItems && cartItems.map((item) => <Item key={item.id} item={item} />)}
+        <section style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
+            {watchData &&
+                watchData.map((watchItem) => (
+                    <Item
+                        key={watchItem.id}
+                        watchItem={watchItem}
+                        addWatchToCart={addWatchToCart}
+                    />
+                ))}
         </section>
     );
 };

@@ -4,15 +4,28 @@ import { RouteSwitch } from "./routes/RouteSwitch";
 import { productData } from "./data/ProductData";
 
 function App() {
+  const [watchData, setWatchData] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    setCartItems(productData);
+    setWatchData(productData);
   }, []);
+
+  const addWatchToCart = (watchItem) => {
+    const targetWatchItem = watchData.find((item) => {
+      return item.id === watchItem.id;
+    });
+
+    setCartItems(...cartItems, targetWatchItem);
+  };
 
   return (
     <>
-      <RouteSwitch cartItems={cartItems} />
+      <RouteSwitch
+        addWatchToCart={addWatchToCart}
+        cartItems={cartItems}
+        watchData={watchData}
+      />
     </>
   );
 }
