@@ -1,18 +1,29 @@
-import { useEffect } from "react";
-import { NavBar } from "../../components/NavBar";
 import { ItemLayout } from "./ItemLayout";
-import { Header } from "../../components/Header";
+import { useEffect, useState } from "react";
+import styles from "./styles.module.css";
 
 export const Shop = (props) => {
-    const { watchData, addWatchToCart } = props;
+  const { watchData, addWatchToCart, cartLength } = props;
+  const [pageVisible, setPageVisible] = useState(false);
 
-    return (
-        <>
-            <Header />
-            <main>
-                <h2>Shopping page!</h2>
-                <ItemLayout addWatchToCart={addWatchToCart} watchData={watchData} />
-            </main>
-        </>
-    );
+  useEffect(() => {
+    setPageVisible(true);
+  }, []);
+
+  return (
+    <>
+      <main
+        className={`${styles.fadeIn} ${pageVisible ? styles.visible : ""} ${
+          styles.main
+        }`}
+      >
+        <h2>Shopping page!</h2>
+        <ItemLayout
+          styles={styles}
+          addWatchToCart={addWatchToCart}
+          watchData={watchData}
+        />
+      </main>
+    </>
+  );
 };

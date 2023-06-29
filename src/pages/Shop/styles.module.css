@@ -1,0 +1,88 @@
+/* Shop.js styles */
+
+.fadeIn {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.visible {
+    opacity: 1;
+}
+
+/* main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+
+/* ItemLayout.js styles */
+
+section {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    outline: 1px solid black;
+    width: 80vw;
+}
+
+/* ItemPreview.js styles */
+
+article {
+    display: flex;
+    flex-direction: column;
+    transition: all 1s ease-in;
+    width: 200px;
+    gap: 8px;
+    height: auto;
+    align-items: center;
+    padding: 12px;
+    cursor: pointer;
+    color: black;
+    outline: 1px solid grey;
+    background-color: rgb(230, 230, 230);
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px 1px #8080803d;
+}
+
+a {
+    text-decoration: none;
+}
+
+article h3,
+article p {
+    margin: 8px 0px;
+}
+
+.previewImg {
+    width: auto;
+    height: 105px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+}
+
+/* Item.js styles */
+
+.itemImg {
+    width: 65%;
+    height: auto;
+}
+
+.fullItemContainer {
+    display: flex;
+    width: 80%;
+}
+
+.fullItemDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+    gap: 6px;
+}
+
+.fullItemDetails p:nth-child(2) {
+    width: 75%;
+}

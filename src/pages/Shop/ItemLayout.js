@@ -1,19 +1,19 @@
-import { useEffect } from "react";
-import { Item } from "./Item";
+import { ItemPreview } from "./ItemPreview";
 
 export const ItemLayout = (props) => {
-    const { watchData, addWatchToCart } = props;
+  const { watchData, addWatchToCart, styles } = props;
 
-    return (
-        <section style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
-            {watchData &&
-                watchData.map((watchItem) => (
-                    <Item
-                        key={watchItem.id}
-                        watchItem={watchItem}
-                        addWatchToCart={addWatchToCart}
-                    />
-                ))}
-        </section>
-    );
+  return (
+    <section className={styles.section}>
+      {watchData &&
+        watchData.map((watchItem, index) => (
+          <ItemPreview
+            key={watchItem.id}
+            watchItem={watchItem}
+            addWatchToCart={addWatchToCart}
+            styles={styles}
+          />
+        ))}
+    </section>
+  );
 };

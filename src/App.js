@@ -1,22 +1,36 @@
 import { useEffect, useState } from "react";
-import { HomePage } from "./pages/Home/Home";
 import { RouteSwitch } from "./routes/RouteSwitch";
 import { productData } from "./data/ProductData";
+import "./assets/styles/globalStyles.css";
+import "./assets/styles/normalize.css";
 
-function App() {
-  const [watchData, setWatchData] = useState([]);
+export const App = () => {
+  const [watchData, setWatchData] = useState(productData);
   const [cartItems, setCartItems] = useState([]);
+  const [cartTotal, setCartTotal] = useState();
+
+  // Number of items in the cart
+  const cartLength = cartItems.length;
 
   useEffect(() => {
-    setWatchData(productData);
-  }, []);
+    calculateCartTotal();
+  }, [cartItems]);
 
   const addWatchToCart = (watchItem) => {
     const targetWatchItem = watchData.find((item) => {
       return item.id === watchItem.id;
     });
 
-    setCartItems(...cartItems, targetWatchItem);
+    setCartItems([...cartItems, targetWatchItem]);
+  };
+
+  const calculateCartTotal = () => {
+    const cartTotal = cartItems.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.price,
+      0
+    );
+    const roundedCartTotal = cartTotal.toFixed(2);
+    setCartTotal(roundedCartTotal);
   };
 
   return (
@@ -25,9 +39,10 @@ function App() {
         addWatchToCart={addWatchToCart}
         cartItems={cartItems}
         watchData={watchData}
+        cartLength={cartLength}
+        cartTotal={cartTotal}
+        setWatchData={setWatchData}
       />
     </>
   );
-}
-
-export default App;
+};
