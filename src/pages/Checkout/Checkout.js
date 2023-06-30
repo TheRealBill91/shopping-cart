@@ -1,11 +1,14 @@
-import { Header } from "../../components/Header";
+import { CartItem } from "./CartItem";
 
 export const Checkout = (props) => {
-  const { cartTotal } = props;
+  const { cartTotal, cartItems } = props;
   return (
     <>
-      {/* <Header /> */}
       <h2>Check out</h2>
+      {cartItems &&
+        cartItems.map((cartItem, index) => (
+          <CartItem key={cartItem.id} cartItem={cartItem} />
+        ))}
       <p>${cartTotal}</p>
     </>
   );
