@@ -1,18 +1,12 @@
 import { NavBar } from "./NavBar";
+import styles from "./styles.module.css";
 
 export const Header = (props) => {
   const { cartLength } = props;
   return (
     <>
-      <header
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          borderBottom: "1px solid lightgray",
-        }}
-      >
-        <div className="titleAndLogoContainer">
+      <header className={styles.header}>
+        <div className={styles.titleAndLogoContainer}>
           <h1>Timeless</h1>
         </div>
         <NavBar cartLength={cartLength} />

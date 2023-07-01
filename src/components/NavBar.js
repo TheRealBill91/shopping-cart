@@ -10,9 +10,9 @@ export const NavBar = (props) => {
         </li>
         <li>
           <Link to={"/shop"}>Shop</Link>
-          <span>{cartLength}</span>
         </li>
         <li>
+          <span>{cartLength}</span>
           <Link to={"/checkout"}>Checkout</Link>
         </li>
       </ul>

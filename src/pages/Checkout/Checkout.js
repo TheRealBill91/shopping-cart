@@ -1,15 +1,10 @@
-import { CartItem } from "./CartItem";
+import { CartItemLayout } from "./CartItemLayout";
 
 export const Checkout = (props) => {
   const { cartTotal, cartItems } = props;
   return (
-    <>
-      <h2>Check out</h2>
-      {cartItems &&
-        cartItems.map((cartItem, index) => (
-          <CartItem key={cartItem.id} cartItem={cartItem} />
-        ))}
-      <p>${cartTotal}</p>
-    </>
+    <main>
+      <CartItemLayout cartItems={cartItems} cartTotal={cartTotal} />
+    </main>
   );
 };

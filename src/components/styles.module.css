@@ -1,0 +1,60 @@
+/* Header styles */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    width: 100vw;
+    padding: 0px 16px;
+}
+
+.titleAndLogoContainer {
+    margin-left: 10px;
+}
+
+/* Quantity incrementer styles */
+
+.quantityIncrementerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid grey;
+    background-color: white;
+    width: 160px;
+    padding: 4px;
+
+}
+
+.quantityIncrementerContainer>button:first-of-type {
+    width: 30px;
+    background-color: grey;
+    border: none;
+    padding: 4px;
+
+}
+
+.quantityIncrementerContainer>button:last-of-type {
+    width: 30px;
+    background-color: grey;
+    border: none;
+    padding: 4px;
+}
+
+input[type="number"] {
+    width: 40%;
+    flex: 1;
+    border: none;
+    text-align: center;
+}
+
+input::placeholder {
+    color: rgb(218, 218, 218);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

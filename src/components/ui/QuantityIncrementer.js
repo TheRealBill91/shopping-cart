@@ -1,18 +1,16 @@
-export const QuantityIncrementer = () => {
+import styles from "../styles.module.css";
+
+export const QuantityIncrementer = (props) => {
+  const { cartItem } = props;
   return (
-    <div
-      style={{
-        display: "flex",
-        border: "1px solid lightgrey",
-        justifyContent: "center",
-      }}
-    >
+    <div className={styles.quantityIncrementerContainer}>
       <button>-</button>
       <input
-        style={{ width: "50%" }}
-        placeholder="Quantity"
-        type="number"
+        min={0}
         name="quantity"
+        placeholder="quantity"
+        type="number"
+        value={cartItem.quantity}
       ></input>
       <button>+</button>
     </div>
