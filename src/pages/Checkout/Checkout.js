@@ -1,10 +1,16 @@
 import { CartItemLayout } from "./CartItemLayout";
 
 export const Checkout = (props) => {
-  const { cartTotal, cartItems } = props;
+  const { cartTotal, cartItems, incrementCartItemQty, decrementCartItemQty } =
+    props;
   return (
     <main>
-      <CartItemLayout cartItems={cartItems} cartTotal={cartTotal} />
+      <CartItemLayout
+        incrementCartItemQty={incrementCartItemQty}
+        decrementCartItemQty={decrementCartItemQty}
+        cartItems={cartItems}
+        cartTotal={cartTotal}
+      />
     </main>
   );
 };

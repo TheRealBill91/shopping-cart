@@ -1,10 +1,10 @@
 import styles from "../styles.module.css";
 
 export const QuantityIncrementer = (props) => {
-  const { cartItem } = props;
+  const { cartItem, incrementCartItemQty, decrementCartItemQty } = props;
   return (
     <div className={styles.quantityIncrementerContainer}>
-      <button>-</button>
+      <button onClick={() => decrementCartItemQty(cartItem)}>-</button>
       <input
         min={0}
         name="quantity"
@@ -12,7 +12,7 @@ export const QuantityIncrementer = (props) => {
         type="number"
         value={cartItem.quantity}
       ></input>
-      <button>+</button>
+      <button onClick={() => incrementCartItemQty(cartItem)}>+</button>
     </div>
   );
 };

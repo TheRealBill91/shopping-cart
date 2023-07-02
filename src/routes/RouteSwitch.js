@@ -7,7 +7,15 @@ import { Header } from "../components/Header";
 import { Item } from "../pages/Shop/Item";
 
 export const RouteSwitch = (props) => {
-  const { watchData, addWatchToCart, cartItems, cartLength, cartTotal } = props;
+  const {
+    watchData,
+    addWatchToCart,
+    cartItems,
+    cartLength,
+    cartTotal,
+    incrementCartItemQty,
+    decrementCartItemQty,
+  } = props;
 
   return (
     <BrowserRouter>
@@ -37,6 +45,8 @@ export const RouteSwitch = (props) => {
               cartTotal={cartTotal}
               cartItems={cartItems}
               cartLength={cartLength}
+              incrementCartItemQty={incrementCartItemQty}
+              decrementCartItemQty={decrementCartItemQty}
             />
           }
         />

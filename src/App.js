@@ -34,20 +34,18 @@ export const App = () => {
 
     const checkForDuplicate = preventDuplicateCartItems(targetWatchItem);
     const duplicateItem = checkForDuplicate[0];
+    const originalItem = checkForDuplicate[1];
     if (duplicateItem) {
-      const originalItem = checkForDuplicate[1];
-      const newTargetWatchItem = {
-        ...originalItem,
-        quantity: originalItem.quantity + 1,
-      };
+      const newCartItems = cartItems.map((item) => {
+        if (item.id === targetWatchItem.id) {
+          return { ...originalItem, quantity: originalItem.quantity + 1 };
+        } else {
+          return item;
+        }
+      });
 
-      const newCartItems = cartItems.filter(
-        (item) => item.id !== targetWatchItem.id
-      );
-
-      setCartItems([...newCartItems, newTargetWatchItem]);
+      setCartItems(newCartItems);
     } else {
-      console.log(targetWatchItem);
       const newTargetWatchItem = {
         ...targetWatchItem,
         inCart: true,
@@ -62,12 +60,43 @@ export const App = () => {
     const duplicateItem = cartItems.find((item) => {
       return item.watchName === targetWatchItem.watchName;
     });
+    // undefined would mean no cart item with that name exists,
+    // implying that there is no duplicate item trying to be added
+    // to the cart
     const itemIsDuplicated =
       duplicateItem === undefined ? false : [true, duplicateItem];
 
     return itemIsDuplicated;
   };
   // end of custom hook
+
+  const incrementCartItemQty = (cartItem) => {
+    const newCartItems = cartItems.map((item) => {
+      if (item.id === cartItem.id) {
+        return { ...item, quantity: item.quantity + 1 };
+      } else {
+        return cartItem;
+      }
+    });
+
+    setCartItems(newCartItems);
+  };
+
+  const decrementCartItemQty = (cartItem) => {
+    if (cartItem.quantity === 1) {
+      return;
+    }
+
+    const newCartItems = cartItems.map((item) => {
+      if (item.id === cartItem.id) {
+        return { ...item, quantity: item.quantity - 1 };
+      } else {
+        return item;
+      }
+    });
+
+    setCartItems(newCartItems);
+  };
 
   const calculateCartTotal = () => {
     const cartTotal = cartItems.reduce(
@@ -87,6 +116,8 @@ export const App = () => {
         watchData={watchData}
         cartLength={cartLength}
         cartTotal={cartTotal}
+        incrementCartItemQty={incrementCartItemQty}
+        decrementCartItemQty={decrementCartItemQty}
         setWatchData={setWatchData}
       />
     </>
