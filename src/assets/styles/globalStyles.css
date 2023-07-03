@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
+  height: 100vh;
 }
 
 /* body {
@@ -16,7 +17,6 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100vh;
   margin-top: 4%;
-  width: 85%;
+  width: 100%;
 }

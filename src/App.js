@@ -104,7 +104,6 @@ export const App = () => {
     if (typeof inputValue !== "number") {
       console.log("must be a number");
       return;
-      // put some error message indicating the input must be a number
     } else if (inputValue < 1) {
       console.log("value must be greater than 0");
       return;

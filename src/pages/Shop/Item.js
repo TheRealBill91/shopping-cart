@@ -21,17 +21,7 @@ export const Item = (props) => {
         ></img>
         <div className={styles.fullItemDetails}>
           <h3>{targetWatchItem.watchName}</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui
-            faucibus in ornare quam. Bibendum est ultricies integer quis auctor
-            elit. Sit amet volutpat consequat mauris. Nec feugiat in fermentum
-            posuere urna nec tincidunt. Amet justo donec enim diam. Vel orci
-            porta non pulvinar. Tellus at urna condimentum mattis pellentesque
-            id nibh. Scelerisque fermentum dui faucibus in. In metus vulputate
-            eu scelerisque. Lacus vestibulum sed arcu non odio euismod lacinia
-            at.
-          </p>
+          <p>{targetWatchItem.imgDescription}</p>
           <p>${targetWatchItem.price}</p>
           <AddToCartButton
             addWatchToCart={addWatchToCart}

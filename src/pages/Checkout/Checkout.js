@@ -1,5 +1,6 @@
 import { CartItemLayout } from "./CartItemLayout";
 import { BackToShopBtn } from "../../components/ui/BackToShopBtn";
+import { EmptyCartMsg } from "./EmptyCartMsg";
 
 export const Checkout = (props) => {
   const {
@@ -11,13 +12,17 @@ export const Checkout = (props) => {
   } = props;
   return (
     <main>
-      <CartItemLayout
-        incrementCartItemQty={incrementCartItemQty}
-        decrementCartItemQty={decrementCartItemQty}
-        handleItemQuantityInput={handleItemQuantityInput}
-        cartItems={cartItems}
-        cartTotal={cartTotal}
-      />
+      {cartItems.length > 0 ? (
+        <CartItemLayout
+          incrementCartItemQty={incrementCartItemQty}
+          decrementCartItemQty={decrementCartItemQty}
+          handleItemQuantityInput={handleItemQuantityInput}
+          cartItems={cartItems}
+          cartTotal={cartTotal}
+        />
+      ) : (
+        <EmptyCartMsg />
+      )}
       <BackToShopBtn />
     </main>
   );

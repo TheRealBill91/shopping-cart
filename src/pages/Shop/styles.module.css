@@ -1,12 +1,12 @@
 /* Shop.js styles */
 
 .fadeIn {
-    opacity: 0;
-    transition: opacity 0.5s;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 
 .visible {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* main {
@@ -19,70 +19,91 @@
 /* ItemLayout.js styles */
 
 section {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    outline: 1px solid black;
-    width: 80vw;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  outline: 1px solid black;
+  width: 82vw;
+  flex-wrap: wrap;
 }
 
 /* ItemPreview.js styles */
 
 article {
-    display: flex;
-    flex-direction: column;
-    transition: all 1s ease-in;
-    width: 200px;
-    gap: 8px;
-    height: auto;
-    align-items: center;
-    padding: 12px;
-    cursor: pointer;
-    color: black;
-    outline: 1px solid grey;
-    background-color: rgb(230, 230, 230);
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px 1px #8080803d;
+  display: flex;
+  flex-direction: column;
+  transition: all 1s ease-in;
+  flex: 1;
+  gap: 8px;
+  height: auto;
+  align-items: center;
+  padding: 12px;
+  cursor: pointer;
+  color: black;
+  outline: 1px solid grey;
+  background-color: rgb(230, 230, 230);
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px 1px #8080803d;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
+  flex: 1;
 }
 
 article h3,
 article p {
-    margin: 8px 0px;
+  margin: 8px 0px;
+  text-align: center;
 }
 
 .previewImg {
-    width: auto;
-    height: 105px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
+  width: auto;
+  height: 105px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+
+.elegantMeshImg {
+  background-image: url(../../assets/photos/elegantMesh.jpg);
+  height: 150px;
+  width: 80%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+
+.chronographClassic {
+  background-image: url(../../assets/photos/chronographClassic.jpg);
+  height: 150px;
+  width: 80%;
+  background-size: cover;
+  background-position-x: center;
+  border-radius: 8px;
 }
 
 /* Item.js styles */
 
 .itemImg {
-    width: 65%;
-    height: auto;
+  width: 65%;
+  height: auto;
 }
 
 .fullItemContainer {
-    display: flex;
-    width: 80%;
+  display: flex;
+  width: 80%;
 }
 
 .fullItemDetails {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-    justify-content: center;
-    gap: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  gap: 6px;
 }
 
 .fullItemDetails p:nth-child(2) {
-    width: 75%;
+  width: 75%;
 }

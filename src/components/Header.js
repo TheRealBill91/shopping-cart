@@ -1,5 +1,6 @@
 import { NavBar } from "./NavBar";
 import styles from "./styles.module.css";
+import { Link } from "react-router-dom/dist";
 
 export const Header = (props) => {
   const { cartLength } = props;
@@ -7,7 +8,9 @@ export const Header = (props) => {
     <>
       <header className={styles.header}>
         <div className={styles.titleAndLogoContainer}>
-          <h1>Timeless</h1>
+          <Link to={"/"}>
+            <h1>Timeless</h1>
+          </Link>
         </div>
         <NavBar cartLength={cartLength} />
       </header>
