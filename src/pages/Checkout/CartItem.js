@@ -2,7 +2,12 @@ import styles from "./styles.module.css";
 import { QuantityIncrementer } from "../../components/ui/QuantityIncrementer";
 
 export const CartItem = (props) => {
-  const { cartItem, incrementCartItemQty, decrementCartItemQty } = props;
+  const {
+    cartItem,
+    incrementCartItemQty,
+    decrementCartItemQty,
+    handleItemQuantityInput,
+  } = props;
 
   return (
     <>
@@ -13,6 +18,7 @@ export const CartItem = (props) => {
           <QuantityIncrementer
             incrementCartItemQty={incrementCartItemQty}
             decrementCartItemQty={decrementCartItemQty}
+            handleItemQuantityInput={handleItemQuantityInput}
             cartItem={cartItem}
           />
         </div>

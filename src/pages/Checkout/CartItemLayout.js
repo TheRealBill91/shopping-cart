@@ -1,8 +1,13 @@
 import { CartItem } from "./CartItem";
 
 export const CartItemLayout = (props) => {
-  const { cartItems, cartTotal, incrementCartItemQty, decrementCartItemQty } =
-    props;
+  const {
+    cartItems,
+    cartTotal,
+    incrementCartItemQty,
+    decrementCartItemQty,
+    handleItemQuantityInput,
+  } = props;
   return (
     <>
       <h2>Check out</h2>
@@ -12,6 +17,7 @@ export const CartItemLayout = (props) => {
             key={cartItem.id}
             incrementCartItemQty={incrementCartItemQty}
             decrementCartItemQty={decrementCartItemQty}
+            handleItemQuantityInput={handleItemQuantityInput}
             cartItem={cartItem}
           />
         ))}

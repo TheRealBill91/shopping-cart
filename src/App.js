@@ -8,9 +8,7 @@ export const App = () => {
   const [watchData, setWatchData] = useState(productData);
   const [cartItems, setCartItems] = useState([]);
   const [cartTotal, setCartTotal] = useState();
-
-  // Number of items in the cart
-  // const cartLength = cartItems.length;
+  const [itemQtyInput, setItemQtyInput] = useState();
 
   const numberOfCartItems = () => {
     const length = cartItems.reduce(
@@ -26,13 +24,12 @@ export const App = () => {
     calculateCartTotal();
   }, [cartItems]);
 
-  // create custom hook (start here)
   const addWatchToCart = (watchItem) => {
     const targetWatchItem = watchData.find((item) => {
       return item.id === watchItem.id;
     });
 
-    const checkForDuplicate = preventDuplicateCartItems(targetWatchItem);
+    const checkForDuplicate = checkForDuplicateCartItems(targetWatchItem);
     const duplicateItem = checkForDuplicate[0];
     const originalItem = checkForDuplicate[1];
     if (duplicateItem) {
@@ -56,7 +53,7 @@ export const App = () => {
     }
   };
 
-  const preventDuplicateCartItems = (targetWatchItem) => {
+  const checkForDuplicateCartItems = (targetWatchItem) => {
     const duplicateItem = cartItems.find((item) => {
       return item.watchName === targetWatchItem.watchName;
     });
@@ -68,7 +65,6 @@ export const App = () => {
 
     return itemIsDuplicated;
   };
-  // end of custom hook
 
   const incrementCartItemQty = (cartItem) => {
     const newCartItems = cartItems.map((item) => {
@@ -84,12 +80,39 @@ export const App = () => {
 
   const decrementCartItemQty = (cartItem) => {
     if (cartItem.quantity === 1) {
+      const newCartItems = cartItems.filter((item) => {
+        return item.id !== cartItem.id;
+      });
+      setCartItems(newCartItems);
+      return;
+    } else {
+      const newCartItems = cartItems.map((item) => {
+        if (item.id === cartItem.id) {
+          return { ...item, quantity: item.quantity - 1 };
+        } else {
+          return item;
+        }
+      });
+
+      setCartItems(newCartItems);
+    }
+  };
+
+  const handleItemQuantityInput = (e, cartItem) => {
+    const inputValue = +e.target.value;
+    console.log(typeof inputValue);
+    if (typeof inputValue !== "number") {
+      console.log("must be a number");
+      return;
+      // put some error message indicating the input must be a number
+    } else if (inputValue < 1) {
+      console.log("value must be greater than 0");
       return;
     }
 
     const newCartItems = cartItems.map((item) => {
       if (item.id === cartItem.id) {
-        return { ...item, quantity: item.quantity - 1 };
+        return { ...item, quantity: inputValue };
       } else {
         return item;
       }
@@ -118,6 +141,7 @@ export const App = () => {
         cartTotal={cartTotal}
         incrementCartItemQty={incrementCartItemQty}
         decrementCartItemQty={decrementCartItemQty}
+        handleItemQuantityInput={handleItemQuantityInput}
         setWatchData={setWatchData}
       />
     </>

@@ -1,9 +1,9 @@
 export const AddToCartButton = (props) => {
-  const { addWatchToCart, watchItem } = props;
+  const { addWatchToCart, targetWatchItem } = props;
   return (
     <>
       <button
-        onClick={() => addWatchToCart(watchItem)}
+        onClick={() => addWatchToCart(targetWatchItem)}
         style={{ width: "70%" }}
       >
         Add to Cart

@@ -3,9 +3,13 @@ import watch2 from "../assets/photos/watch-2.jpg";
 import watch3 from "../assets/photos/watch-3.jpeg";
 import uniqid from "uniqid";
 
-// We use the number property in each object because the React documentation
+// We use the number property for two reasons:
+// 1) in each object because the React documentation
 // recommends against using the same id to map over an object as well as using it
 // for other things.
+// 2) Each cart item has it's own child route, and an ID is needed to display each
+// child route. Because we already have an ID when mapping over the watchObjects, it is
+// called number here instead
 
 export const productData = [
   {

@@ -7,10 +7,10 @@ export const ItemPreview = (props) => {
   const { watchItem, styles } = props;
   const watchNumber = watchItem.number;
   const watchLinkID = `/shop/${watchNumber}`;
-  console.log(watchItem);
+  // console.log(watchItem);
 
   return (
-    <Link state={watchItem} to={watchLinkID}>
+    <Link to={watchLinkID}>
       <article className={styles.article}>
         <img
           className={styles.previewImg}

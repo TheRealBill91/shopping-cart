@@ -15,6 +15,7 @@ export const RouteSwitch = (props) => {
     cartTotal,
     incrementCartItemQty,
     decrementCartItemQty,
+    handleItemQuantityInput,
   } = props;
 
   return (
@@ -35,7 +36,9 @@ export const RouteSwitch = (props) => {
           />
           <Route
             path=":id"
-            element={<Item addWatchToCart={addWatchToCart} />}
+            element={
+              <Item watchData={watchData} addWatchToCart={addWatchToCart} />
+            }
           />
         </Route>
         <Route
@@ -47,6 +50,7 @@ export const RouteSwitch = (props) => {
               cartLength={cartLength}
               incrementCartItemQty={incrementCartItemQty}
               decrementCartItemQty={decrementCartItemQty}
+              handleItemQuantityInput={handleItemQuantityInput}
             />
           }
         />
