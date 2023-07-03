@@ -9,11 +9,13 @@
   border-radius: 8px;
   background-color: lightgrey;
   padding: 12px;
-  width: 70%;
+  width: 575px;
+  height: 175px;
+  position: relative;
 }
 
 .checkoutItem img {
-  width: 25%;
+  width: 35%;
   height: auto;
   border-radius: 8px;
 }
@@ -22,12 +24,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 12px;
 }
 
 /* Styles for Checkout.js */
 
-main {
+.checkoutMain {
   gap: 16px;
+  justify-content: center;
+  padding: 2% 4%;
 }
 
 h2 {
@@ -52,4 +57,22 @@ h2 {
 
 .emptyCartContainer p:first-of-type {
   font-size: 1.2rem;
+}
+
+/* RemoveItemBtn.js styles */
+
+.removeItemBtn {
+  border: none;
+  background-color: inherit;
+  color: rgb(46, 46, 46);
+  font-size: 0.9rem;
+  align-self: flex-end;
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+}
+
+.removeItemBtn:hover {
+  text-decoration: underline black;
+  color: black;
 }

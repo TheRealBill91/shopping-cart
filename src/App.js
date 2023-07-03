@@ -24,6 +24,10 @@ export const App = () => {
     calculateCartTotal();
   }, [cartItems]);
 
+  const removeWatchFromCart = (watchItem) => {
+    setCartItems(cartItems.filter((cartItem) => cartItem.id !== watchItem.id));
+  };
+
   const addWatchToCart = (watchItem) => {
     const targetWatchItem = watchData.find((item) => {
       return item.id === watchItem.id;
@@ -134,6 +138,7 @@ export const App = () => {
     <>
       <RouteSwitch
         addWatchToCart={addWatchToCart}
+        removeWatchFromCart={removeWatchFromCart}
         cartItems={cartItems}
         watchData={watchData}
         cartLength={cartLength}

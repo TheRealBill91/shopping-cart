@@ -7,6 +7,7 @@ export const CartItemLayout = (props) => {
     incrementCartItemQty,
     decrementCartItemQty,
     handleItemQuantityInput,
+    removeWatchFromCart,
   } = props;
   return (
     <>
@@ -19,6 +20,7 @@ export const CartItemLayout = (props) => {
             decrementCartItemQty={decrementCartItemQty}
             handleItemQuantityInput={handleItemQuantityInput}
             cartItem={cartItem}
+            removeWatchFromCart={removeWatchFromCart}
           />
         ))}
       <p>Total: ${cartTotal}</p>

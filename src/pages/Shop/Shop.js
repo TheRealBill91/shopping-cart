@@ -14,7 +14,7 @@ export const Shop = (props) => {
     <>
       <main
         className={`${styles.fadeIn} ${pageVisible ? styles.visible : ""} ${
-          styles.main
+          styles.shopMain
         }`}
       >
         <h2>Shopping page!</h2>

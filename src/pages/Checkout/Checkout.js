@@ -1,6 +1,7 @@
 import { CartItemLayout } from "./CartItemLayout";
 import { BackToShopBtn } from "../../components/ui/BackToShopBtn";
 import { EmptyCartMsg } from "./EmptyCartMsg";
+import styles from "./styles.module.css";
 
 export const Checkout = (props) => {
   const {
@@ -9,9 +10,10 @@ export const Checkout = (props) => {
     incrementCartItemQty,
     decrementCartItemQty,
     handleItemQuantityInput,
+    removeWatchFromCart,
   } = props;
   return (
-    <main>
+    <main className={styles.checkoutMain}>
       {cartItems.length > 0 ? (
         <CartItemLayout
           incrementCartItemQty={incrementCartItemQty}
@@ -19,6 +21,7 @@ export const Checkout = (props) => {
           handleItemQuantityInput={handleItemQuantityInput}
           cartItems={cartItems}
           cartTotal={cartTotal}
+          removeWatchFromCart={removeWatchFromCart}
         />
       ) : (
         <EmptyCartMsg />

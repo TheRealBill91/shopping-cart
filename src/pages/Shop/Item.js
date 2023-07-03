@@ -7,9 +7,9 @@ import styles from "./styles.module.css";
 export const Item = (props) => {
   const { addWatchToCart, watchData } = props;
   const itemLinkLocation = useLocation();
-  const itemID = +itemLinkLocation.pathname.slice(-1);
+  const itemNameLink = itemLinkLocation.pathname.slice(6);
   const targetWatchItem = watchData.find((item) => {
-    return item.number === itemID;
+    return item.watchName.split(" ").join("").toLowerCase() === itemNameLink;
   });
   return (
     <main>

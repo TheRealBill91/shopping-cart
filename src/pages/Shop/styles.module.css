@@ -1,5 +1,10 @@
 /* Shop.js styles */
 
+.shopMain {
+  padding: 2% 4%;
+  gap: 16px;
+}
+
 .fadeIn {
   opacity: 0;
   transition: opacity 0.5s;
@@ -67,7 +72,7 @@ article p {
 
 .elegantMeshImg {
   background-image: url(../../assets/photos/elegantMesh.jpg);
-  height: 150px;
+  height: 170px;
   width: 80%;
   background-size: cover;
   background-position: center;
@@ -76,10 +81,10 @@ article p {
 
 .chronographClassic {
   background-image: url(../../assets/photos/chronographClassic.jpg);
-  height: 150px;
+  height: 170px;
   width: 80%;
   background-size: cover;
-  background-position-x: center;
+  background-position: center;
   border-radius: 8px;
 }
 

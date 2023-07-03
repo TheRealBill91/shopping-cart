@@ -32,4 +32,7 @@ This project is a shopping cart application built with React. The purpose of thi
 
 ### Photos
 
-- [Siler round watch, yellow background](https://www.pexels.com/photo/classic-clock-conceptual-hours-277390/) - [Silver round watch, grey background](https://www.pexels.com/photo/analogue-blur-chrome-classic-280250/)
+- [Siler round watch, yellow background](https://www.pexels.com/photo/classic-clock-conceptual-hours-277390/)
+- [Silver round watch, grey background](https://www.pexels.com/photo/analogue-blur-chrome-classic-280250/)
+- [Round Gold colored analog watch with black leather strap](https://www.pexels.com/photo/round-gold-colored-analog-watch-with-black-leather-strap-at-10-10-1120275/)
+- [Round silver colored Emporio Armani Chronograph watch](https://www.pexels.com/photo/round-silver-colored-emporio-armani-chronograph-watch-404181/)

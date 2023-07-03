@@ -25,7 +25,6 @@ export const productData = [
     previewImgStyle: styles.elegantMeshImg,
     imageAlt:
       "A photo of a Calvin Klein wristwatch with a black face, silver hands and hour markers, and a black mesh strap, resting on its side on a yellow background.",
-    number: 1,
   },
   {
     id: uniqid(),
@@ -39,7 +38,6 @@ export const productData = [
     previewImgStyle: styles.chronographClassic,
     imageAlt:
       "A photo of a silver wristwatch with a black face, white markings, three subdials, a tachymeter, and a date window, resting on a textured gray surface.",
-    number: 2,
   },
   {
     id: uniqid(),
@@ -50,6 +48,5 @@ export const productData = [
     // productImage: watch3,
     imageAlt:
       "A photo of a Rolex Deepsea Sea-Dweller watch with a stainless steel case and bracelet, black dial, blue and black bezel, date window, and helium escape valve, on a gray fabric background.",
-    number: 3,
   },
 ];

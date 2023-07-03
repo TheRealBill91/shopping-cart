@@ -10,6 +10,7 @@ export const RouteSwitch = (props) => {
   const {
     watchData,
     addWatchToCart,
+    removeWatchFromCart,
     cartItems,
     cartLength,
     cartTotal,
@@ -35,7 +36,7 @@ export const RouteSwitch = (props) => {
             }
           />
           <Route
-            path=":id"
+            path=":watchName"
             element={
               <Item watchData={watchData} addWatchToCart={addWatchToCart} />
             }
@@ -51,6 +52,7 @@ export const RouteSwitch = (props) => {
               incrementCartItemQty={incrementCartItemQty}
               decrementCartItemQty={decrementCartItemQty}
               handleItemQuantityInput={handleItemQuantityInput}
+              removeWatchFromCart={removeWatchFromCart}
             />
           }
         />

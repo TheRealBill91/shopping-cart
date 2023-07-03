@@ -2,12 +2,11 @@ import { Link } from "react-router-dom";
 
 export const ItemPreview = (props) => {
   const { watchItem, styles } = props;
-  const watchNumber = watchItem.number;
-  const watchLinkID = `/shop/${watchNumber}`;
-  console.log(watchItem.previewImgStyle);
+  const watchName = watchItem.watchName.split(" ").join("").toLowerCase();
+  const watchLinkName = `/shop/${watchName}`;
 
   return (
-    <Link to={watchLinkID}>
+    <Link to={watchLinkName}>
       <article className={styles.article}>
         <div
           className={watchItem.previewImgStyle}
