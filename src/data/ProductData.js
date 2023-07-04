@@ -1,5 +1,6 @@
 import elegantMesh from "../assets/photos/elegantMesh.jpg";
 import chronographClassic from "../assets/photos/chronographClassic.jpg";
+import goldPrestige from "../assets/photos/goldPrestige.jpg";
 import uniqid from "uniqid";
 
 import styles from "../pages/Shop/styles.module.css";
@@ -18,7 +19,7 @@ export const productData = [
     watchName: "Elegant Mesh",
     imgDescription:
       "This elegant wristwatch features a black face with silver hands and hour markers, set in a sleek silver case. The black mesh strap adds a touch of sophistication to the design. The Calvin Klein brand name on the face is a mark of quality and style.",
-    price: 85.43,
+    price: 385.43,
     quantity: 0,
     inCart: false,
     productImage: elegantMesh,
@@ -31,7 +32,7 @@ export const productData = [
     watchName: "Chronograph Classic",
     imgDescription:
       "This stylish silver wristwatch boasts a black face with white markings, three subdials for seconds, minutes, and hours, and a tachymeter on the outer edge. The date window between the 4 and 5 o’clock positions adds functionality to this classic design. The stainless steel bracelet with fold-over clasp completes the timeless look.",
-    price: 123.23,
+    price: 223.23,
     quantity: 0,
     inCart: false,
     productImage: chronographClassic,
@@ -41,12 +42,14 @@ export const productData = [
   },
   {
     id: uniqid(),
-    watchName: "Cool guy",
-    price: 94.34,
+    watchName: "Gold Prestige",
+    imgDescription:
+      "The Gold Prestige is a stunning timepiece that combines classic design with modern luxury. The watch features a white face with gold casing and a black leather strap. The face has Roman numerals for the hours and a date window at the 3 o’clock position. The gold watch hands and blue second hand add a touch of sophistication to this elegant watch. Perfect for any occasion, the Gold Prestige is a must-have for any watch enthusiast.",
+    price: 494.34,
     quantity: 0,
     inCart: false,
-    // productImage: watch3,
-    imageAlt:
-      "A photo of a Rolex Deepsea Sea-Dweller watch with a stainless steel case and bracelet, black dial, blue and black bezel, date window, and helium escape valve, on a gray fabric background.",
+    productImage: goldPrestige,
+    previewImgStyle: styles.goldPrestige,
+    imageAlt: "Watch with white face, gold casing, and black leather strap",
   },
 ];

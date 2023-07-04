@@ -10,7 +10,7 @@ export const ItemPreview = (props) => {
       <article className={styles.article}>
         <div
           className={watchItem.previewImgStyle}
-          // alt="a silver watch with a blue face and a yellow background"
+          aria-label={watchItem.imageAlt}
         ></div>
         <h3>{watchItem.watchName}</h3>
         <p>${watchItem.price}</p>

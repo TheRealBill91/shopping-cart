@@ -1,3 +1,7 @@
+#root.shop {
+  min-height: 100vh;
+}
+
 /* Shop.js styles */
 
 .shopMain {
@@ -24,11 +28,12 @@
 /* ItemLayout.js styles */
 
 section {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 12px;
-  justify-content: center;
+  /* justify-content: center; */
   outline: 1px solid black;
-  width: 82vw;
+  width: 75vw;
   flex-wrap: wrap;
 }
 
@@ -58,7 +63,7 @@ a {
 
 article h3,
 article p {
-  margin: 8px 0px;
+  margin: 10px 0px 0px 0px;
   text-align: center;
 }
 
@@ -88,16 +93,35 @@ article p {
   border-radius: 8px;
 }
 
+.goldPrestige {
+  background-image: url(../../assets/photos/goldPrestige.jpg);
+  height: 170px;
+  width: 80%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+
 /* Item.js styles */
 
 .itemImg {
-  width: 65%;
+  width: 45%;
   height: auto;
+  border-radius: 8px;
+}
+
+h3 {
+  margin-bottom: 0px;
 }
 
 .fullItemContainer {
   display: flex;
   width: 80%;
+  margin-top: 4%;
+  padding: 12px;
+  background-color: #d3d3d366;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px 2px #9696965e;
 }
 
 .fullItemDetails {
