@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { RouteSwitch } from "./routes/RouteSwitch";
 import { productData } from "./data/ProductData";
-import "./assets/styles/globalStyles.css";
+import "./assets/styles/globalStyles.module.css";
 import "./assets/styles/normalize.css";
+import { useLocation } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 export const App = () => {
   const [watchData, setWatchData] = useState(productData);
@@ -136,18 +138,20 @@ export const App = () => {
 
   return (
     <>
-      <RouteSwitch
-        addWatchToCart={addWatchToCart}
-        removeWatchFromCart={removeWatchFromCart}
-        cartItems={cartItems}
-        watchData={watchData}
-        cartLength={cartLength}
-        cartTotal={cartTotal}
-        incrementCartItemQty={incrementCartItemQty}
-        decrementCartItemQty={decrementCartItemQty}
-        handleItemQuantityInput={handleItemQuantityInput}
-        setWatchData={setWatchData}
-      />
+      <BrowserRouter>
+        <RouteSwitch
+          addWatchToCart={addWatchToCart}
+          removeWatchFromCart={removeWatchFromCart}
+          cartItems={cartItems}
+          watchData={watchData}
+          cartLength={cartLength}
+          cartTotal={cartTotal}
+          incrementCartItemQty={incrementCartItemQty}
+          decrementCartItemQty={decrementCartItemQty}
+          handleItemQuantityInput={handleItemQuantityInput}
+          setWatchData={setWatchData}
+        />
+      </BrowserRouter>
     </>
   );
 };
