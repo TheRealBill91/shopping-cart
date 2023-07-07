@@ -109,10 +109,47 @@ input[type="number"]::-webkit-outer-spin-button {
   padding: 8px;
   box-shadow: 0px 2px 3px #76767669;
   margin-bottom: 12px;
-  transition: all 0.1s ease-in-out;
+  transition: background-color 0.1s ease-in, color 0.4s linear;
   width: 130px;
 }
 
 .addToCartBtn:hover {
   background-color: #525252;
+}
+
+.addToCartBtn:active {
+  color: #525252;
+  background-color: #ebebeb;
+}
+
+/* CheckOutBtn.js */
+
+.checkOutBtn {
+  height: 45px;
+  width: 50px;
+  background-color: rgb(39, 94, 28);
+  box-shadow: 0px 2px 3px #76767669;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  font-size: 1.1rem;
+  color: rgb(255, 255, 255);
+  align-self: center;
+  transition: background-color 0.1s linear, color 0.2s ease-in;
+  flex: 0 0 auto;
+}
+
+.checkOutBtn:hover {
+  background-color: rgb(31, 77, 22);
+}
+
+.checkOutBtn:active {
+  background-color: white;
+  color: rgb(31, 77, 22);
+
 }

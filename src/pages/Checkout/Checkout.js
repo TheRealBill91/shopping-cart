@@ -11,6 +11,7 @@ export const Checkout = (props) => {
     decrementCartItemQty,
     handleItemQuantityInput,
     removeWatchFromCart,
+    resetShoppingCart,
   } = props;
   return (
     <main className={styles.checkoutMain}>
@@ -23,6 +24,7 @@ export const Checkout = (props) => {
           cartItems={cartItems}
           cartTotal={cartTotal}
           removeWatchFromCart={removeWatchFromCart}
+          resetShoppingCart={resetShoppingCart}
         />
       ) : (
         <EmptyCartMsg />

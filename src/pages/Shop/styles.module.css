@@ -5,7 +5,7 @@
 /* Shop.js styles */
 
 .shopMain {
-  padding: 2% 4%;
+  padding: 4% 4%;
   gap: 20px;
 }
 
@@ -20,6 +20,7 @@
 
 .shopH2 {
   font-size: 1.6rem;
+  margin-top: 16px;
 }
 
 /* ItemLayout.js styles */
@@ -31,6 +32,7 @@ section {
   /*  outline: 1px solid black; */
   width: 75vw;
   grid-auto-rows: 325px;
+  margin-bottom: 2%;
 }
 
 :global(section a) {
@@ -59,7 +61,6 @@ article {
 
 a {
   text-decoration: none;
-  flex: 1;
 }
 
 article h3,
@@ -144,6 +145,24 @@ article p {
   border-radius: 8px;
 }
 
+.blueHorizon {
+  background-image: url(../../assets/photos/blueHorizon.jpg);
+  height: 170px;
+  width: 80%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+
+.woodland {
+  background-image: url(../../assets/photos/woodland.jpg);
+  height: 170px;
+  width: 80%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+
 /* Item.js styles */
 
 .itemImg {
@@ -170,7 +189,7 @@ article p {
   align-items: center;
   min-width: 770px;
   height: 65vh;
-  max-width: 75%;
+  max-width: 65%;
 }
 
 .fullItemDetailsContainer {

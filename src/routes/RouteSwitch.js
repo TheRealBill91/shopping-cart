@@ -6,6 +6,7 @@ import { Checkout } from "../pages/Checkout/Checkout";
 import { Header } from "../components/Header";
 import { Item } from "../pages/Shop/Item";
 import styles from "../assets/styles/globalStyles.module.css";
+import { ThankYou } from "../pages/ThankYou";
 
 export const RouteSwitch = (props) => {
   const {
@@ -18,6 +19,7 @@ export const RouteSwitch = (props) => {
     incrementCartItemQty,
     decrementCartItemQty,
     handleItemQuantityInput,
+    resetShoppingCart,
   } = props;
 
   const location = useLocation();
@@ -62,9 +64,11 @@ export const RouteSwitch = (props) => {
               decrementCartItemQty={decrementCartItemQty}
               handleItemQuantityInput={handleItemQuantityInput}
               removeWatchFromCart={removeWatchFromCart}
+              resetShoppingCart={resetShoppingCart}
             />
           }
         />
+        <Route path="/thankyou" element={<ThankYou />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>

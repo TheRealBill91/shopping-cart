@@ -12,6 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .welcomeMessage {
@@ -21,7 +22,41 @@
   width: 50%;
   color: lightgray;
   backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   background-color: rgba(75, 75, 75, 0.712);
   text-align: center;
   box-shadow: 0px 2px 14px 2px #5555554f;
+}
+
+.goToShopBtn {
+  background-color: #444444cb;
+  border-radius: 12px;
+  color: #ebebeb;
+  box-shadow: 0px 2px 4px rgba(128, 128, 128, 0.432);
+  font-size: 1.4rem;
+  border: none;
+  width: 35%;
+  padding: 12px;
+  margin-bottom: 12px;
+  transition: background-color 0.1s ease-in, color 0.4s linear;
+  width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  letter-spacing: 1px;
+  z-index: 0;
+  transition: background-color 0.1s linear;
+}
+
+.goToShopBtn:before {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: -1;
+}
+
+.goToShopBtn:hover {
+  background-color: #555555c5;
+  transform: scale(1.02);
+  letter-spacing: 1px;
 }

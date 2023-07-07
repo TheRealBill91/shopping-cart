@@ -135,6 +135,12 @@ export const App = () => {
     setCartTotal(roundedCartTotal);
   };
 
+  const resetShoppingCart = () => {
+    setCartItems([]);
+    setCartTotal();
+    setWatchData(productData);
+  };
+
   return (
     <>
       <BrowserRouter>
@@ -149,6 +155,7 @@ export const App = () => {
           decrementCartItemQty={decrementCartItemQty}
           handleItemQuantityInput={handleItemQuantityInput}
           setWatchData={setWatchData}
+          resetShoppingCart={resetShoppingCart}
         />
       </BrowserRouter>
     </>

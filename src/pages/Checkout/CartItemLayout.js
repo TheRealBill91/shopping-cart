@@ -1,4 +1,5 @@
 import { CartItem } from "./CartItem";
+import { CheckOutBtn } from "../../components/ui/CheckOutBtn";
 import styles from "./styles.module.css";
 
 export const CartItemLayout = (props) => {
@@ -9,6 +10,7 @@ export const CartItemLayout = (props) => {
     decrementCartItemQty,
     handleItemQuantityInput,
     removeWatchFromCart,
+    resetShoppingCart,
   } = props;
   return (
     <>
@@ -25,7 +27,10 @@ export const CartItemLayout = (props) => {
               removeWatchFromCart={removeWatchFromCart}
             />
           ))}
-        <p className={styles.cartTotalPara}>Total: ${cartTotal}</p>
+        <div className={styles.priceAndCheckoutBtnContainer}>
+          <p className={styles.cartTotalPara}>Total: ${cartTotal}</p>
+          <CheckOutBtn resetShoppingCart={resetShoppingCart} />
+        </div>
       </section>
     </>
   );

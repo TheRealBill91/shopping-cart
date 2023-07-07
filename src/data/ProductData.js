@@ -5,6 +5,8 @@ import desertRose from "../assets/photos/desertRose.jpg";
 import silverClassic from "../assets/photos/silverClassic.jpg";
 import leatherTimekeeper from "../assets/photos/leatherTimekeeper.jpg";
 import blackEdition from "../assets/photos/blackEdition.jpg";
+import blueHorizon from "../assets/photos/blueHorizon.jpg";
+import woodland from "../assets/photos/woodland.jpg";
 import uniqid from "uniqid";
 
 import styles from "../pages/Shop/styles.module.css";
@@ -107,5 +109,23 @@ export const productData = [
   {
     id: uniqid(),
     watchName: "Blue Horizon",
+    imgDescription:
+      "This elegant wristwatch features a blue face with a black bezel and white numbers and markers, set in a silver case.",
+    price: 399,
+    quantity: 0,
+    inCart: false,
+    productImage: blueHorizon,
+    previewImgStyle: styles.blueHorizon,
+  },
+  {
+    id: uniqid(),
+    watchName: "Woodland",
+    imgDescription:
+      "This unique wristwatch features a round wooden face with black hour, minute, and second hands, set on a tan leather strap with red and white stitching.",
+    price: 349,
+    quantity: 0,
+    inCart: false,
+    productImage: woodland,
+    previewImgStyle: styles.woodland,
   },
 ];
