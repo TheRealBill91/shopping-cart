@@ -9,15 +9,26 @@ export const QuantityIncrementer = (props) => {
   } = props;
   return (
     <div className={styles.quantityIncrementerContainer}>
-      <button onClick={() => decrementCartItemQty(cartItem)}>-</button>
+      <button
+        className={styles.quantityChangeBtn}
+        onClick={() => decrementCartItemQty(cartItem)}
+      >
+        -
+      </button>
       <input
         min={1}
         name="quantity"
+        title="quantityInput"
         type="number"
         value={cartItem.quantity}
         onChange={(e) => handleItemQuantityInput(e, cartItem)}
       ></input>
-      <button onClick={() => incrementCartItemQty(cartItem)}>+</button>
+      <button
+        className={styles.quantityChangeBtn}
+        onClick={() => incrementCartItemQty(cartItem)}
+      >
+        +
+      </button>
     </div>
   );
 };

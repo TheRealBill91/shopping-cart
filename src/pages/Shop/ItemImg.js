@@ -1,5 +1,7 @@
 import { useImage } from "react-image";
 
+// Not currently in use
+
 export const ItemImg = (props) => {
   const { imgSrc, alt } = props;
   const { src } = useImage({

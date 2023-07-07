@@ -1,26 +1,26 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./styles.module.css";
 
 export const NavBar = (props) => {
   const { cartLength } = props;
   return (
-    <nav>
+    <nav id="navLinks">
       <ul style={styles.ul}>
         <li className={styles.li}>
-          <Link className={styles.navLink} to={"/"}>
+          <NavLink className={styles.navLink} to={"/"}>
             Home
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className={styles.navLink} to={"/shop"}>
+          <NavLink className={styles.navLink} to={"/shop"}>
             Shop
-          </Link>
+          </NavLink>
         </li>
         <li>
           <span>{cartLength}</span>
-          <Link className={styles.navLink} to={"/checkout"}>
+          <NavLink className={styles.navLink} to={"/checkout"}>
             Checkout
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </nav>

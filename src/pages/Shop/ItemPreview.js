@@ -13,7 +13,7 @@ export const ItemPreview = (props) => {
           aria-label={watchItem.imageAlt}
         ></div>
         <h3>{watchItem.watchName}</h3>
-        <p>${watchItem.price}</p>
+        <p className={styles.pricePara}>${watchItem.price}</p>
       </article>
     </Link>
   );

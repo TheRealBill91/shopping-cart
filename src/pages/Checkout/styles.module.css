@@ -3,20 +3,19 @@
 .checkoutItem {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8%;
+  justify-content: space-evenly;
   border: 1px solid grey;
   border-radius: 8px;
-  background-color: lightgrey;
+  background-color: rgba(245, 245, 245, 0.836);
   padding: 12px;
   width: 575px;
-  height: 175px;
+  height: 200px;
   position: relative;
 }
 
 .checkoutItem img {
-  width: 35%;
-  height: auto;
+  width: 180px;
+  height: 140px;
   border-radius: 8px;
 }
 
@@ -25,6 +24,14 @@
   flex-direction: column;
   align-items: center;
   margin-right: 12px;
+  gap: 24px;
+  height: 75%;
+  justify-content: center;
+}
+
+.checkoutItemH3 {
+  font-size: 1.4rem;
+  margin: 0;
 }
 
 /* Styles for Checkout.js */
@@ -32,11 +39,30 @@
 .checkoutMain {
   gap: 16px;
   justify-content: center;
-  padding: 2% 4%;
+  padding: 4% 4%;
 }
 
-h2 {
-  margin: 4px 0px;
+/* CartItemLayout.js */
+
+.cartItemLayoutContainer {
+  background-color: rgb(228, 228, 228);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  padding: 10px;
+  margin-top: 2%;
+}
+
+.checkoutH2 {
+  margin: 12px 0px 0px 0px;
+  font-size: 1.6rem;
+}
+
+.cartTotalPara {
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 /* EmptyCartMsg.js styles  */

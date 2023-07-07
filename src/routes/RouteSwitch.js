@@ -1,10 +1,4 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  useLocation,
-  createRoutesFromElements,
-} from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { HomePage } from "../pages/Home/Home";
 import { Shop } from "../pages/Shop/Shop";
 import { ErrorPage } from "../pages/ErrorPage";

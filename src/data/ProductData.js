@@ -1,6 +1,9 @@
 import elegantMesh from "../assets/photos/elegantMesh.jpg";
 import chronographClassic from "../assets/photos/chronographClassic.jpg";
 import goldPrestige from "../assets/photos/goldPrestige.jpg";
+import desertRose from "../assets/photos/desertRose.jpg";
+import silverClassic from "../assets/photos/silverClassic.jpg";
+import leatherTimekeeper from "../assets/photos/leatherTimekeeper.jpg";
 import uniqid from "uniqid";
 
 import styles from "../pages/Shop/styles.module.css";
@@ -51,5 +54,42 @@ export const productData = [
     productImage: goldPrestige,
     previewImgStyle: styles.goldPrestige,
     imageAlt: "Watch with white face, gold casing, and black leather strap",
+  },
+  {
+    id: uniqid(),
+    watchName: "Desert Rose",
+    imgDescription:
+      "This stunning rose gold watch features a round face with black minute and hour hands, set on a bed of succulent plants. The rose gold band with clasp adds a touch of elegance to the design. The perfect accessory for any nature lover.",
+    price: 399,
+    quantity: 0,
+    inCart: false,
+    productImage: desertRose,
+    previewImgStyle: styles.desertRose,
+    imageAlt:
+      "A rose gold watch with black hands on a bed of succulent plants.",
+  },
+  {
+    id: uniqid(),
+    watchName: "Silver Classic",
+    imgDescription:
+      "This timeless Timex wristwatch boasts a silver metal band and a round white face with black numbers and hands. The three smaller dials for seconds, minutes, and hours add functionality to this classic design. Resting on a black wooden surface, this watch is the epitome of sophistication.",
+    price: 299,
+    quantity: 0,
+    inCart: false,
+    productImage: silverClassic,
+    previewImgStyle: styles.silverClassic,
+    imageAlt:
+      "A silver Timex wristwatch with a white face and black numbers on a black wooden surface.",
+  },
+  {
+    id: uniqid(),
+    watchName: "Leather Timekeeper",
+    imgDescription:
+      "This elegant Seiko watch features a black face with silver hands and white hour markers, set on a brown leather strap. The date window at the 3 o’clock position adds practicality to this stylish design.",
+    price: 449,
+    quantity: 0,
+    inCart: false,
+    productImage: leatherTimekeeper,
+    previewImgStyle: styles.leatherTimekeeper,
   },
 ];

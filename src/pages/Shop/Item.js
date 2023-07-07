@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { AddToCartButton } from "../../components/ui/AddCartButton";
 import { BackToShopBtn } from "../../components/ui/BackToShopBtn";
 import { useLocation } from "react-router-dom";
@@ -19,10 +18,10 @@ export const Item = (props) => {
           src={targetWatchItem.productImage}
           alt={targetWatchItem.imageAlt}
         ></img>
-        <div className={styles.fullItemDetails}>
-          <h3>{targetWatchItem.watchName}</h3>
+        <div className={styles.fullItemDetailsContainer}>
+          <h3 className={styles.itemH3}>{targetWatchItem.watchName}</h3>
           <p>{targetWatchItem.imgDescription}</p>
-          <p>${targetWatchItem.price}</p>
+          <p className={styles.ItemPricePara}>${targetWatchItem.price}</p>
           <AddToCartButton
             addWatchToCart={addWatchToCart}
             targetWatchItem={targetWatchItem}

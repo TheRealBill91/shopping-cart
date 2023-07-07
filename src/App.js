@@ -3,14 +3,12 @@ import { RouteSwitch } from "./routes/RouteSwitch";
 import { productData } from "./data/ProductData";
 import "./assets/styles/globalStyles.module.css";
 import "./assets/styles/normalize.css";
-import { useLocation } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 
 export const App = () => {
   const [watchData, setWatchData] = useState(productData);
   const [cartItems, setCartItems] = useState([]);
   const [cartTotal, setCartTotal] = useState();
-  const [itemQtyInput, setItemQtyInput] = useState();
 
   const numberOfCartItems = () => {
     const length = cartItems.reduce(
@@ -75,9 +73,10 @@ export const App = () => {
   const incrementCartItemQty = (cartItem) => {
     const newCartItems = cartItems.map((item) => {
       if (item.id === cartItem.id) {
+        console.log(item);
         return { ...item, quantity: item.quantity + 1 };
       } else {
-        return cartItem;
+        return item;
       }
     });
 

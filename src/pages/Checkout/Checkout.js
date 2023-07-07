@@ -14,6 +14,7 @@ export const Checkout = (props) => {
   } = props;
   return (
     <main className={styles.checkoutMain}>
+      <BackToShopBtn />
       {cartItems.length > 0 ? (
         <CartItemLayout
           incrementCartItemQty={incrementCartItemQty}
@@ -26,7 +27,6 @@ export const Checkout = (props) => {
       ) : (
         <EmptyCartMsg />
       )}
-      <BackToShopBtn />
     </main>
   );
 };

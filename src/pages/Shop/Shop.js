@@ -17,7 +17,7 @@ export const Shop = (props) => {
           styles.shopMain
         }`}
       >
-        <h2>Shopping page!</h2>
+        <h2 className={styles.shopH2}>Shopping page!</h2>
         <ItemLayout
           styles={styles}
           addWatchToCart={addWatchToCart}
