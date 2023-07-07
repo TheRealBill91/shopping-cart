@@ -4,6 +4,7 @@ import goldPrestige from "../assets/photos/goldPrestige.jpg";
 import desertRose from "../assets/photos/desertRose.jpg";
 import silverClassic from "../assets/photos/silverClassic.jpg";
 import leatherTimekeeper from "../assets/photos/leatherTimekeeper.jpg";
+import blackEdition from "../assets/photos/blackEdition.jpg";
 import uniqid from "uniqid";
 
 import styles from "../pages/Shop/styles.module.css";
@@ -21,7 +22,7 @@ export const productData = [
     id: uniqid(),
     watchName: "Elegant Mesh",
     imgDescription:
-      "This elegant wristwatch features a black face with silver hands and hour markers, set in a sleek silver case. The black mesh strap adds a touch of sophistication to the design. The Calvin Klein brand name on the face is a mark of quality and style.",
+      "This elegant wristwatch features a black face with silver hands and hour markers, set in a sleek silver case.",
     price: 385.43,
     quantity: 0,
     inCart: false,
@@ -34,7 +35,7 @@ export const productData = [
     id: uniqid(),
     watchName: "Chronograph Classic",
     imgDescription:
-      "This stylish silver wristwatch boasts a black face with white markings, three subdials for seconds, minutes, and hours, and a tachymeter on the outer edge. The date window between the 4 and 5 o’clock positions adds functionality to this classic design. The stainless steel bracelet with fold-over clasp completes the timeless look.",
+      "This stylish silver wristwatch boasts a black face with white markings, three subdials for seconds, minutes, and hours, and a tachymeter on the outer edge.",
     price: 223.23,
     quantity: 0,
     inCart: false,
@@ -47,7 +48,7 @@ export const productData = [
     id: uniqid(),
     watchName: "Gold Prestige",
     imgDescription:
-      "The Gold Prestige is a stunning timepiece that combines classic design with modern luxury. The watch features a white face with gold casing and a black leather strap. The face has Roman numerals for the hours and a date window at the 3 o’clock position. The gold watch hands and blue second hand add a touch of sophistication to this elegant watch. Perfect for any occasion, the Gold Prestige is a must-have for any watch enthusiast.",
+      "The Gold Prestige is a stunning timepiece that combines classic design with modern luxury.",
     price: 494.34,
     quantity: 0,
     inCart: false,
@@ -59,7 +60,7 @@ export const productData = [
     id: uniqid(),
     watchName: "Desert Rose",
     imgDescription:
-      "This stunning rose gold watch features a round face with black minute and hour hands, set on a bed of succulent plants. The rose gold band with clasp adds a touch of elegance to the design. The perfect accessory for any nature lover.",
+      "This stunning rose gold watch features a round face with black minute and hour hands.",
     price: 399,
     quantity: 0,
     inCart: false,
@@ -72,7 +73,7 @@ export const productData = [
     id: uniqid(),
     watchName: "Silver Classic",
     imgDescription:
-      "This timeless Timex wristwatch boasts a silver metal band and a round white face with black numbers and hands. The three smaller dials for seconds, minutes, and hours add functionality to this classic design. Resting on a black wooden surface, this watch is the epitome of sophistication.",
+      "This timeless Timex wristwatch boasts a silver metal band and a round white face with black numbers and hands.",
     price: 299,
     quantity: 0,
     inCart: false,
@@ -85,11 +86,26 @@ export const productData = [
     id: uniqid(),
     watchName: "Leather Timekeeper",
     imgDescription:
-      "This elegant Seiko watch features a black face with silver hands and white hour markers, set on a brown leather strap. The date window at the 3 o’clock position adds practicality to this stylish design.",
+      "This elegant Seiko watch features a black face with silver hands and white hour markers, set on a brown leather strap.",
     price: 449,
     quantity: 0,
     inCart: false,
     productImage: leatherTimekeeper,
     previewImgStyle: styles.leatherTimekeeper,
+  },
+  {
+    id: uniqid(),
+    watchName: "Black Edition",
+    imgDescription:
+      "This stylish wristwatch features a black face with white vintage style numbers and hands, set in a black case.",
+    price: 429,
+    quantity: 0,
+    inCart: false,
+    productImage: blackEdition,
+    previewImgStyle: styles.blackEdition,
+  },
+  {
+    id: uniqid(),
+    watchName: "Blue Horizon",
   },
 ];

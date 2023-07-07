@@ -11,7 +11,8 @@ export const Item = (props) => {
     return item.watchName.split(" ").join("").toLowerCase() === itemNameLink;
   });
   return (
-    <main>
+    <main className={styles.itemMain}>
+      <BackToShopBtn />
       <div className={styles.fullItemContainer}>
         <img
           className={styles.itemImg}
@@ -26,7 +27,6 @@ export const Item = (props) => {
             addWatchToCart={addWatchToCart}
             targetWatchItem={targetWatchItem}
           />
-          <BackToShopBtn />
         </div>
       </div>
     </main>
