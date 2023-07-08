@@ -4,7 +4,7 @@ export const ItemLayout = (props) => {
   const { watchData, addWatchToCart, styles } = props;
 
   return (
-    <section className={styles.section}>
+    <section className={styles.itemLayout}>
       {watchData &&
         watchData.map((watchItem, index) => (
           <ItemPreview

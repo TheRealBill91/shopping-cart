@@ -7,12 +7,11 @@ export const ThankYou = () => {
   const navigate = useNavigate();
 
   const directToShopPage = () => {
-    console.log("getting here?");
     return navigate("/shop");
   };
 
   useEffect(() => {
-    setTimeout(directToShopPage, 2500);
+    setTimeout(directToShopPage, 3000);
   }, [navigate]);
 
   return (

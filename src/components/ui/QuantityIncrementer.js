@@ -18,7 +18,7 @@ export const QuantityIncrementer = (props) => {
       <input
         min={1}
         name="quantity"
-        title="quantityInput"
+        title="quantity-input"
         type="number"
         value={cartItem.quantity}
         onChange={(e) => handleItemQuantityInput(e, cartItem)}

@@ -8,7 +8,7 @@ export const HomePage = (props) => {
     <main className={styles.homeMain}>
       <div className={styles.homeBackgroundContainer}>
         <h2 className={styles.welcomeMessage}>
-          Premium, finely engineered Watches
+          Premium watches, engineered to perfection
         </h2>
         <Link className={styles.goToShopBtn} to="/shop">
           Shop

@@ -14,11 +14,14 @@ export const Item = (props) => {
     <main className={styles.itemMain}>
       <BackToShopBtn />
       <div className={styles.fullItemContainer}>
-        <img
-          className={styles.itemImg}
-          src={targetWatchItem.productImage}
-          alt={targetWatchItem.imageAlt}
-        ></img>
+        <section className={styles.image}>
+          <img
+            className={styles.itemImg}
+            src={targetWatchItem.productImage}
+            alt={targetWatchItem.imageAlt}
+          ></img>
+        </section>
+
         <div className={styles.fullItemDetailsContainer}>
           <h3 className={styles.itemH3}>{targetWatchItem.watchName}</h3>
           <p>{targetWatchItem.imgDescription}</p>

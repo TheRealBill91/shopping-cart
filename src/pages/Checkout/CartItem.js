@@ -14,7 +14,9 @@ export const CartItem = (props) => {
   return (
     <>
       <div className={styles.checkoutItem}>
-        <img src={cartItem.productImage} alt={cartItem.imageAlt}></img>
+        <section className={styles.image}>
+          <img src={cartItem.productImage} alt={cartItem.imageAlt}></img>
+        </section>
         <div className={styles.itemInfoContainer}>
           <h3 className={styles.checkoutItemH3}>{cartItem.watchName}</h3>
           <QuantityIncrementer
