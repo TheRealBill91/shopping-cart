@@ -143,21 +143,19 @@ export const App = () => {
 
   return (
     <>
-      <BrowserRouter>
-        <RouteSwitch
-          addWatchToCart={addWatchToCart}
-          removeWatchFromCart={removeWatchFromCart}
-          cartItems={cartItems}
-          watchData={watchData}
-          cartLength={cartLength}
-          cartTotal={cartTotal}
-          incrementCartItemQty={incrementCartItemQty}
-          decrementCartItemQty={decrementCartItemQty}
-          handleItemQuantityInput={handleItemQuantityInput}
-          setWatchData={setWatchData}
-          resetShoppingCart={resetShoppingCart}
-        />
-      </BrowserRouter>
+      <RouteSwitch
+        addWatchToCart={addWatchToCart}
+        removeWatchFromCart={removeWatchFromCart}
+        cartItems={cartItems}
+        watchData={watchData}
+        cartLength={cartLength}
+        cartTotal={cartTotal}
+        incrementCartItemQty={incrementCartItemQty}
+        decrementCartItemQty={decrementCartItemQty}
+        handleItemQuantityInput={handleItemQuantityInput}
+        setWatchData={setWatchData}
+        resetShoppingCart={resetShoppingCart}
+      />
     </>
   );
 };

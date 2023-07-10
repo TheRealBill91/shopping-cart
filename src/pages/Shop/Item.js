@@ -14,7 +14,7 @@ export const Item = (props) => {
     <main className={styles.itemMain}>
       <BackToShopBtn />
       <div className={styles.fullItemContainer}>
-        <section className={styles.image}>
+        <section className={styles.imageContainer}>
           <img
             className={styles.itemImg}
             src={targetWatchItem.productImage}

@@ -94,6 +94,8 @@ export const productData = [
     inCart: false,
     productImage: leatherTimekeeper,
     previewImgStyle: styles.leatherTimekeeper,
+    imageAlt:
+      "A Seiko watch with a black face and silver hands on a brown leather strap.",
   },
   {
     id: uniqid(),
@@ -105,6 +107,8 @@ export const productData = [
     inCart: false,
     productImage: blackEdition,
     previewImgStyle: styles.blackEdition,
+    imageAlt:
+      "A black wristwatch with white vintage style numbers and hands, and three smaller dials within the main dial.",
   },
   {
     id: uniqid(),
@@ -116,6 +120,8 @@ export const productData = [
     inCart: false,
     productImage: blueHorizon,
     previewImgStyle: styles.blueHorizon,
+    imageAlt:
+      "A silver wristwatch with a blue face, black bezel, white numbers and markers, and a date window.",
   },
   {
     id: uniqid(),
@@ -127,5 +133,7 @@ export const productData = [
     inCart: false,
     productImage: woodland,
     previewImgStyle: styles.woodland,
+    imageAlt:
+      "A wooden wristwatch with a tan leather strap and black hands, resting on a bed of green pine needles.",
   },
 ];

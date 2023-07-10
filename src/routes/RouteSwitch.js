@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import { HomePage } from "../pages/Home/Home";
+import { Home } from "../pages/Home/Home";
 import { Shop } from "../pages/Shop/Shop";
 import { ErrorPage } from "../pages/ErrorPage";
 import { Checkout } from "../pages/Checkout/Checkout";
@@ -34,7 +34,7 @@ export const RouteSwitch = (props) => {
     >
       <Header cartLength={cartLength} />
       <Routes>
-        <Route path="/" element={<HomePage cartLength={cartLength} />} />
+        <Route path="/" element={<Home cartLength={cartLength} />} />
         <Route path="/shop">
           <Route
             index

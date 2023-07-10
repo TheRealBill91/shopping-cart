@@ -6,9 +6,9 @@ export const Shop = (props) => {
   const { watchData, addWatchToCart, cartLength } = props;
   const [pageVisible, setPageVisible] = useState(false);
 
-  useEffect(() => {
+  /*  useEffect(() => {
     setPageVisible(true);
-  }, []);
+  }, []); */
 
   return (
     <>

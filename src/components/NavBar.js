@@ -5,7 +5,7 @@ export const NavBar = (props) => {
   const { cartLength } = props;
   return (
     <nav id="navLinks">
-      <ul style={styles.ul}>
+      <ul className={styles.ul}>
         <li className={styles.li}>
           <NavLink className={styles.navLink} to={"/"}>
             Home

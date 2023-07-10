@@ -14,7 +14,7 @@ export const CartItem = (props) => {
   return (
     <>
       <div className={styles.checkoutItem}>
-        <section className={styles.image}>
+        <section className={styles.imageContainer}>
           <img src={cartItem.productImage} alt={cartItem.imageAlt}></img>
         </section>
         <div className={styles.itemInfoContainer}>
