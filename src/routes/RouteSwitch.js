@@ -24,7 +24,6 @@ export const RouteSwitch = (props) => {
 
   const location = useLocation();
   const isHomePage = location.pathname === "/";
-  console.log(isHomePage);
 
   return (
     <div

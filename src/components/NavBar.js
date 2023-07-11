@@ -16,11 +16,13 @@ export const NavBar = (props) => {
             Shop
           </NavLink>
         </li>
-        <li>
-          <span>{cartLength}</span>
-          <NavLink className={styles.navLink} to={"/checkout"}>
+        <li className={styles.checkoutLinkContainer}>
+          <NavLink className={styles.navLink3} to={"/checkout"}>
             Checkout
           </NavLink>
+          <span className={styles.cartLength} data-testid="cart-length">
+            {cartLength}
+          </span>
         </li>
       </ul>
     </nav>

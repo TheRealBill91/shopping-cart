@@ -39,10 +39,31 @@ ul {
   border-bottom: 2px solid black;
 }
 
+.navLink3:hover {
+  color: black;
+  border-bottom: 2px solid black;
+}
+
 .navLink {
   color: rgb(41, 41, 41);
   font-size: 1.2rem;
 }
+
+.navLink3 {
+  color: rgb(41, 41, 41);
+  font-size: 1.2rem;
+}
+
+.cartLength {
+  position: absolute;
+  top: -5px;
+}
+
+.checkoutLinkContainer {
+  position: relative;
+}
+
+
 
 /* Quantity incrementer styles */
 
