@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
+import styles from "./styles.module.css";
 
 export const ItemPreview = (props) => {
-  const { watchItem, styles } = props;
+  const { watchItem } = props;
   const watchName = watchItem.watchName.split(" ").join("").toLowerCase();
   const watchLinkName = `/shop/${watchName}`;
 

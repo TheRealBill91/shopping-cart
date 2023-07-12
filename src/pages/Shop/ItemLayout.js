@@ -1,7 +1,8 @@
 import { ItemPreview } from "./ItemPreview";
+import styles from "./styles.module.css";
 
 export const ItemLayout = (props) => {
-  const { watchData, addWatchToCart, styles } = props;
+  const { watchData, addWatchToCart } = props;
 
   return (
     <section className={styles.itemLayout}>
