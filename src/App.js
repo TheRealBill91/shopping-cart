@@ -121,7 +121,6 @@ export const App = () => {
         return item;
       }
     });
-
     setCartItems(newCartItems);
   };
 
