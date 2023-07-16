@@ -1,4 +1,10 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import {
+  render,
+  screen,
+  waitFor,
+  act,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { MemoryRouter } from "react-router-dom";
@@ -6,32 +12,80 @@ import { RouteSwitch } from "../routes/RouteSwitch";
 import { App } from "../App";
 import { useEffect, useState } from "react";
 import { Checkout } from "../pages/Checkout/Checkout";
-import { act } from "react-dom/test-utils";
 
-test("add to cart button adds cart to item", async () => {
-  const watchData = [
-    {
-      id: "1",
-      watchName: "Leather Timekeeper",
-      imgDescription: "leather timekeeper image description",
-      price: 449,
-    },
-  ];
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.runOnlyPendingTimers();
+  jest.useRealTimers();
+});
+
+test("calculates correct order total", () => {
   render(
-    <MemoryRouter initialEntries={["/shop/leathertimekeeper"]}>
-      <App
-        cartLength={0}
-        watchData={watchData}
-        targetWatchItem={watchData[0]}
-        cartItems={[]}
-      />
+    <MemoryRouter initialEntries={["/checkout"]}>
+      <TestApp />
     </MemoryRouter>
   );
-  const user = userEvent.setup();
-  await user.click(screen.getByText(/add to cart/i));
+  expect(screen.getByText(/total: \$1745.00/i)).toBeInTheDocument();
+});
 
-  await user.click(screen.getByRole("link", { name: "Checkout" }));
-  expect(screen.getByText(/Leather Timekeeper/)).toBeInTheDocument();
+describe("checkout", () => {
+  test.only("clicking checkout navigates user to thank you page", async () => {
+    const user = userEvent.setup({
+      advanceTimers: () => jest.runOnlyPendingTimers(),
+    });
+    render(
+      <MemoryRouter initialEntries={["/checkout"]}>
+        <TestApp />
+      </MemoryRouter>
+    );
+
+    const checkoutBtn = screen.getByRole("link", { name: "Check Out" });
+    await user.click(checkoutBtn);
+
+    const thankYouMessage = screen.getByTestId("thankYouMessage");
+    expect(thankYouMessage).toHaveTextContent(
+      "Thank you for placing an order with Timeless"
+    );
+
+    /* screen
+      .getByText(/Thank you for placing an order with Timeless/)
+      .toBeInTheDocument(); */
+
+    await waitFor(() => {
+      expect(screen.getByText(/Shopping page!/i)).toBeInTheDocument();
+      screen.debug();
+    });
+  });
+});
+
+describe("add to cart button", () => {
+  test("adds cart to item", async () => {
+    render(
+      <MemoryRouter initialEntries={["/shop/leathertimekeeper"]}>
+        <App />
+      </MemoryRouter>
+    );
+    const user = userEvent.setup();
+
+    await user.click(screen.getByText(/add to cart/i));
+
+    await user.click(screen.getByRole("link", { name: "Checkout" }));
+    expect(screen.getByText(/Checkout/)).toBeInTheDocument();
+    expect(screen.getByText(/Leather Timekeeper/)).toBeInTheDocument();
+  });
+
+  test("calculates correct number of cart items", () => {
+    render(
+      <MemoryRouter>
+        <TestApp />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByTestId("cart-length")).toHaveTextContent(5);
+  });
 });
 
 describe("checkout tests", () => {
@@ -72,9 +126,10 @@ describe("checkout tests", () => {
         <TestApp />
       </MemoryRouter>
     );
+    const user = userEvent.setup();
 
     expect(screen.getByText(/leather watch/)).toBeInTheDocument();
-    await userEvent.click(screen.getAllByRole("button", { name: "Remove" })[0]);
+    await user.click(screen.getAllByRole("button", { name: "Remove" })[0]);
     expect(screen.queryByText(/leather watch/)).not.toBeInTheDocument();
   });
 
@@ -86,9 +141,7 @@ describe("checkout tests", () => {
     );
 
     const user = userEvent.setup();
-    const input = screen.getAllByRole("spinbutton", {
-      name: "quantity-input",
-    })[0];
+
     expect(screen.queryAllByDisplayValue(1)).toHaveLength(2);
     await user.click(screen.getAllByRole("button", { name: "+" })[0]);
     expect(screen.getAllByDisplayValue(2)).toHaveLength(1);
@@ -134,6 +187,19 @@ describe("checkout tests", () => {
     // expect(screen.getByDisplayValue(4)).toBeInTheDocument();
     expect(leatherWatchInput).toHaveValue(14);
   });
+  test("user can navigate back to shop using back to shop button", async () => {
+    render(
+      <MemoryRouter initialEntries={["/checkout"]}>
+        <TestApp />
+      </MemoryRouter>
+    );
+    const user = userEvent.setup();
+
+    expect(screen.getByText(/Check out/)).toBeInTheDocument();
+    const backToShopBtn = screen.getByRole("link", { name: "Back to shop" });
+    await user.click(backToShopBtn);
+    expect(screen.getByText(/Shopping page!/)).toBeInTheDocument();
+  });
 });
 
 const TestApp = () => {
@@ -142,19 +208,23 @@ const TestApp = () => {
       id: 1,
       watchName: "leather watch",
       quantity: 1,
+      price: 449,
     },
     {
       id: 2,
       watchName: "silver watch",
       quantity: 3,
+      price: 299,
     },
     {
       id: 3,
       watchName: "rose gold watch",
       quantity: 1,
+      price: 399,
     },
   ];
   const [cartItems, setCartItems] = useState(initialCartItems);
+  const [cartTotal, setCartTotal] = useState();
 
   const removeWatchFromCart = (watchItem) => {
     setCartItems(cartItems.filter((cartItem) => cartItem.id !== watchItem.id));
@@ -163,7 +233,6 @@ const TestApp = () => {
   const incrementCartItemQty = (cartItem) => {
     const newCartItems = cartItems.map((item) => {
       if (item.id === cartItem.id) {
-        console.log(item);
         return { ...item, quantity: item.quantity + 1 };
       } else {
         return item;
@@ -195,14 +264,13 @@ const TestApp = () => {
 
   const handleItemQuantityInput = (e, cartItem) => {
     const inputValue = +e.target.value;
-    console.log(typeof inputValue);
-    // if (typeof inputValue !== "number") {
-    //   console.log("must be a number");
-    //   return;
-    // } else if (inputValue < 1) {
-    //   console.log("value must be greater than 0");
-    //   return;
-    // }
+    if (typeof inputValue !== "number") {
+      console.log("must be a number");
+      return;
+    } else if (inputValue < 1) {
+      console.log("value must be greater than 0");
+      return;
+    }
 
     const newCartItems = cartItems.map((item) => {
       if (item.id === cartItem.id) {
@@ -215,6 +283,35 @@ const TestApp = () => {
     setCartItems(newCartItems);
   };
 
+  const numberOfCartItems = () => {
+    const length = cartItems.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.quantity * 1,
+      0
+    );
+    return length;
+  };
+
+  const cartLength = numberOfCartItems();
+
+  const calculateCartTotal = () => {
+    const cartTotal = cartItems.reduce(
+      (accumulator, currentValue) =>
+        accumulator + currentValue.price * currentValue.quantity,
+      0
+    );
+    const roundedCartTotal = cartTotal.toFixed(2);
+    setCartTotal(roundedCartTotal);
+  };
+
+  const resetShoppingCart = () => {
+    setCartItems([]);
+    setCartTotal();
+  };
+
+  useEffect(() => {
+    calculateCartTotal();
+  }, [cartItems]);
+
   return (
     <>
       <RouteSwitch
@@ -223,6 +320,9 @@ const TestApp = () => {
         incrementCartItemQty={incrementCartItemQty}
         decrementCartItemQty={decrementCartItemQty}
         handleItemQuantityInput={handleItemQuantityInput}
+        cartLength={cartLength}
+        cartTotal={cartTotal}
+        resetShoppingCart={resetShoppingCart}
       ></RouteSwitch>
     </>
   );

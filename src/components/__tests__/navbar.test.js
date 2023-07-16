@@ -48,20 +48,3 @@ test("navigate to shop page using shop link in nav bar", async () => {
   await user.click(screen.getByRole("link", { name: "Shop" }));
   expect(screen.getByText(/Shopping page!/)).toBeInTheDocument();
 });
-
-// test("render empty cart view after navigating to checkout", async () => {
-//   const cartItems = [];
-//   render(
-//     <Router>
-//       <RouteSwitch initialEntries={[{ pathname: "/", state: { cartItems } }]} />
-//     </Router>
-//   );
-
-//   const user = userEvent.setup();
-
-//   expect(
-//     screen.getByText(/premium watches, engineered to perfection/i)
-//   ).toBeInTheDocument();
-//   await user.click(screen.getByRole("link", { name: "Checkout" }));
-//   expect(screen.getByText(/Your cart is empty.../)).toBeInTheDocument();
-// });

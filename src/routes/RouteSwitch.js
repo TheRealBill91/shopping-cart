@@ -33,16 +33,12 @@ export const RouteSwitch = (props) => {
     >
       <Header cartLength={cartLength} />
       <Routes>
-        <Route path="/" element={<Home cartLength={cartLength} />} />
+        <Route path="/" element={<Home />} />
         <Route path="/shop">
           <Route
             index
             element={
-              <Shop
-                addWatchToCart={addWatchToCart}
-                watchData={watchData}
-                cartLength={cartLength}
-              />
+              <Shop addWatchToCart={addWatchToCart} watchData={watchData} />
             }
           />
           <Route
@@ -58,7 +54,6 @@ export const RouteSwitch = (props) => {
             <Checkout
               cartTotal={cartTotal}
               cartItems={cartItems}
-              cartLength={cartLength}
               incrementCartItemQty={incrementCartItemQty}
               decrementCartItemQty={decrementCartItemQty}
               handleItemQuantityInput={handleItemQuantityInput}

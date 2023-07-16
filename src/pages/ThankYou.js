@@ -16,7 +16,7 @@ export const ThankYou = () => {
 
   return (
     <main>
-      <p>
+      <p data-testid="thankYouMessage">
         Thank you for placing an order with <strong>Timeless</strong>
       </p>
     </main>

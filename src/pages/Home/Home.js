@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import { Header } from "../../components/Header";
 import styles from "./styles.module.css";
 
-export const Home = (props) => {
-  const { cartLength } = props;
+export const Home = () => {
   return (
     <main className={styles.homeMain}>
       <div className={styles.homeBackgroundContainer}>
