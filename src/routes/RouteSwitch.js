@@ -1,12 +1,12 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Home } from "../pages/Home/Home";
 import { Shop } from "../pages/Shop/Shop";
-import { ErrorPage } from "../pages/ErrorPage";
+import { ErrorPage } from "../pages/ErrorPage/ErrorPage";
 import { Checkout } from "../pages/Checkout/Checkout";
 import { Header } from "../components/Header";
 import { Item } from "../pages/Shop/Item";
 import styles from "../assets/styles/globalStyles.module.css";
-import { ThankYou } from "../pages/ThankYou";
+import { ThankYou } from "../pages/Thankyou/ThankYou";
 
 export const RouteSwitch = (props) => {
   const {

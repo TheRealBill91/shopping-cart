@@ -3,20 +3,16 @@ import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 
 export const Shop = (props) => {
-  const { watchData, addWatchToCart } = props;
-  const [pageVisible, setPageVisible] = useState(false);
+  const { watchData, addWatchToCart, cartLength } = props;
+  // const [pageVisible, setPageVisible] = useState(false);
 
-  useEffect(() => {
-    setPageVisible(true);
-  }, []);
+  // useEffect(() => {
+  //   setPageVisible(true);
+  // }, []);
 
   return (
     <>
-      <main
-        className={`${styles.fadeIn} ${pageVisible ? styles.visible : ""} ${
-          styles.shopMain
-        }`}
-      >
+      <main className={styles.shopMain}>
         <h2 className={styles.shopH2}>Shopping page!</h2>
         <ItemLayout
           styles={styles}

@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styles from "./styles.module.css";
+import { Icon } from "../components/ui/Icon";
 
 export const NavBar = (props) => {
   const { cartLength } = props;
@@ -18,11 +19,11 @@ export const NavBar = (props) => {
         </li>
         <li className={styles.checkoutLinkContainer}>
           <NavLink className={styles.navLink3} to={"/checkout"}>
-            Checkout
+            <div className={styles.cartLength} data-testid="cart-length">
+              {cartLength}
+            </div>
+            <Icon id="shoppingcart" className={styles.shoppingCart} />
           </NavLink>
-          <span className={styles.cartLength} data-testid="cart-length">
-            {cartLength}
-          </span>
         </li>
       </ul>
     </nav>

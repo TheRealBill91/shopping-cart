@@ -41,10 +41,10 @@
 
 /* ItemPreview.js styles */
 
-article {
+article.itemPreview {
   display: flex;
   flex-direction: column;
-  transition: all 1s ease-in;
+  transition: all 0.1s linear;
   flex: 1;
   gap: 8px;
   height: inherit;
@@ -52,11 +52,16 @@ article {
   padding: 16px;
   cursor: pointer;
   color: black;
-  outline: 1px solid grey;
+  border: 1px solid grey;
   background-color: rgba(231, 231, 231, 0.603);
   border-radius: 8px;
   box-shadow: 0px 2px 4px 1px #8080803d;
   justify-content: center;
+}
+
+article.itemPreview:hover {
+  box-shadow: 0px 2px 6px 2px #8080805c;
+  border: 1px solid #5d5d5d;
 }
 
 a {
@@ -186,7 +191,7 @@ article p {
   justify-content: center;
   align-items: center;
   min-width: 770px;
-  height: 50vh;
+  height: 52vh;
   max-width: 65%;
   border: 1px solid #3f3f3f47;
 }

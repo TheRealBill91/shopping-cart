@@ -1,0 +1,10 @@
+.errorPageMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  font-size: 1.7rem;
+  padding: 6%;
+  text-align: center;
+}

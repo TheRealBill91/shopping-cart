@@ -1,3 +1,21 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url(../fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+:root {
+  --default-font: "Montserrat", serif, "Times New Roman", sans-serif,
+    "Open Sans", Arial;
+}
+
+* {
+  font-family: var(--default-font);
+}
+
+button {
+  font-family: var(--default-font);
+}
+
 .parentWrapperHome {
   display: flex;
   flex-direction: column;

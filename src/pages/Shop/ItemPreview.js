@@ -8,7 +8,7 @@ export const ItemPreview = (props) => {
 
   return (
     <Link to={watchLinkName}>
-      <article className={styles.article}>
+      <article className={styles.itemPreview}>
         <div
           className={watchItem.previewImgStyle}
           aria-label={watchItem.imageAlt}
