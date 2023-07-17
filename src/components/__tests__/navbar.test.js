@@ -35,8 +35,8 @@ test("navigate to home page with home link", async () => {
 
 test("navigate to shop page using shop link in nav bar", async () => {
   render(
-    <MemoryRouter>
-      <RouteSwitch initialEntries={["/"]} />
+    <MemoryRouter initialEntries={["/"]}>
+      <RouteSwitch />
     </MemoryRouter>
   );
 
@@ -47,4 +47,22 @@ test("navigate to shop page using shop link in nav bar", async () => {
   ).not.toBeInTheDocument();
   await user.click(screen.getByRole("link", { name: "Shop" }));
   expect(screen.getByText(/Shopping page!/)).toBeInTheDocument();
+});
+
+test("navigate to checkout page using cartNav link", async () => {
+  render(
+    <MemoryRouter initialEntries={["/"]}>
+      <App />
+    </MemoryRouter>
+  );
+
+  const user = userEvent.setup();
+  expect(
+    screen.getByText(/Premium watches, engineered to perfection/)
+  ).toBeInTheDocument();
+  await user.click(screen.getByRole("link", { name: "cartLink" }));
+  expect(
+    screen.queryByText(/Premium watches, engineered to perfection/)
+  ).not.toBeInTheDocument();
+  expect(screen.getByText("Your cart is empty...")).toBeInTheDocument();
 });

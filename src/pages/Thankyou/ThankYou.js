@@ -1,7 +1,7 @@
 // Page that thanks the customer for placing an order
 
 import { useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 
 export const ThankYou = () => {
@@ -17,7 +17,7 @@ export const ThankYou = () => {
 
   return (
     <main className={styles.thankYouMain}>
-      <p>
+      <p data-testid="thankYouMessage">
         Thank you for placing an order with <strong>Timeless</strong>
       </p>
     </main>

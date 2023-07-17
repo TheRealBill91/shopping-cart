@@ -18,7 +18,12 @@ export const NavBar = (props) => {
           </NavLink>
         </li>
         <li className={styles.checkoutLinkContainer}>
-          <NavLink className={styles.navLink3} to={"/checkout"}>
+          <NavLink
+            aria-label="cartLink"
+            role="link"
+            className={styles.navLink3}
+            to={"/checkout"}
+          >
             <div className={styles.cartLength} data-testid="cart-length">
               {cartLength}
             </div>

@@ -1,10 +1,4 @@
-import {
-  render,
-  screen,
-  waitFor,
-  act,
-  waitForElementToBeRemoved,
-} from "@testing-library/react";
+import { render, screen, waitFor, rerender } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { MemoryRouter } from "react-router-dom";
@@ -12,15 +6,7 @@ import { RouteSwitch } from "../routes/RouteSwitch";
 import { App } from "../App";
 import { useEffect, useState } from "react";
 import { Checkout } from "../pages/Checkout/Checkout";
-
-beforeEach(() => {
-  jest.useFakeTimers();
-});
-
-afterEach(() => {
-  jest.runOnlyPendingTimers();
-  jest.useRealTimers();
-});
+import { act } from "react-dom/test-utils";
 
 test("calculates correct order total", () => {
   render(
@@ -32,9 +18,16 @@ test("calculates correct order total", () => {
 });
 
 describe("checkout", () => {
-  test.only("clicking checkout navigates user to thank you page", async () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+  afterEach(() => {
+    jest.runOnlyPendingTimers();
+    jest.useRealTimers();
+  });
+  test("clicking checkout navigates user to thank you page", async () => {
     const user = userEvent.setup({
-      advanceTimers: () => jest.runOnlyPendingTimers(),
+      advanceTimers: () => jest.advanceTimersByTime(),
     });
     render(
       <MemoryRouter initialEntries={["/checkout"]}>
@@ -44,25 +37,61 @@ describe("checkout", () => {
 
     const checkoutBtn = screen.getByRole("link", { name: "Check Out" });
     await user.click(checkoutBtn);
-
     const thankYouMessage = screen.getByTestId("thankYouMessage");
     expect(thankYouMessage).toHaveTextContent(
       "Thank you for placing an order with Timeless"
     );
 
-    /* screen
-      .getByText(/Thank you for placing an order with Timeless/)
-      .toBeInTheDocument(); */
-
+    act(() => {
+      jest.advanceTimersByTime(3000);
+    });
+    await waitFor(() => {
+      expect(thankYouMessage).not.toBeInTheDocument();
+    });
     await waitFor(() => {
       expect(screen.getByText(/Shopping page!/i)).toBeInTheDocument();
-      screen.debug();
+    });
+  });
+
+  test("clicking checkout button clears the cart total & cartItems state", async () => {
+    const user = userEvent.setup({
+      advanceTimers: () => jest.advanceTimersByTime(),
+    });
+    render(
+      <MemoryRouter initialEntries={["/checkout"]}>
+        <TestApp />
+      </MemoryRouter>
+    );
+
+    const checkoutBtn = screen.getByRole("link", { name: "Check Out" });
+    await user.click(checkoutBtn);
+    const cartNavLink = screen.getByRole("link", { name: "cartLink" });
+    await user.click(cartNavLink);
+    expect(screen.getByText(/Your cart is empty.../)).toBeInTheDocument();
+  });
+  test("rendering of thank you page redirects to shop page after 3 seconds", async () => {
+    render(
+      <MemoryRouter initialEntries={["/thankyou"]}>
+        <TestApp />
+      </MemoryRouter>
+    );
+
+    const thankYouMessage = screen.getByTestId("thankYouMessage");
+    expect(thankYouMessage).toHaveTextContent(
+      "Thank you for placing an order with Timeless"
+    );
+    jest.advanceTimersByTime(3000);
+    await waitFor(() => {
+      expect(screen.getByText(/Shopping page!/i)).toBeInTheDocument();
+    });
+    await waitFor(() => {
+      expect(thankYouMessage).not.toBeInTheDocument();
     });
   });
 });
 
 describe("add to cart button", () => {
-  test("adds cart to item", async () => {
+  test("adds item to cart", async () => {
     render(
       <MemoryRouter initialEntries={["/shop/leathertimekeeper"]}>
         <App />
@@ -72,8 +101,8 @@ describe("add to cart button", () => {
 
     await user.click(screen.getByText(/add to cart/i));
 
-    await user.click(screen.getByRole("link", { name: "Checkout" }));
-    expect(screen.getByText(/Checkout/)).toBeInTheDocument();
+    await user.click(screen.getByRole("link", { name: "cartLink" }));
+    expect(screen.getByText(/Check out/)).toBeInTheDocument();
     expect(screen.getByText(/Leather Timekeeper/)).toBeInTheDocument();
   });
 
@@ -116,6 +145,7 @@ describe("checkout tests", () => {
         <Checkout cartItems={cartItems} />
       </MemoryRouter>
     );
+    screen.debug();
     expect(screen.getByText(/leather watch/)).toBeInTheDocument();
     expect(screen.getByText(/silver watch/)).toBeInTheDocument();
   });
@@ -311,6 +341,10 @@ const TestApp = () => {
   useEffect(() => {
     calculateCartTotal();
   }, [cartItems]);
+
+  useEffect(() => {
+    calculateCartTotal();
+  }, []);
 
   return (
     <>

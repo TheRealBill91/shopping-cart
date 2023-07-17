@@ -28,6 +28,7 @@ This project is a shopping cart application built with React. The purpose of thi
 - [react-router-dom](https://reactrouter.com/en/main)
 - [create-react-app](https://create-react-app.dev/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Phosphor Icons](https://phosphoricons.com/)
 
 ## Credits
 
