@@ -1,6 +1,6 @@
 import styles from "../styles.module.css";
 
-export const QuantityIncrementer = (props) => {
+export const QuantityChanger = (props) => {
   const {
     cartItem,
     incrementCartItemQty,

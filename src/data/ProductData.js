@@ -11,14 +11,6 @@ import uniqid from "uniqid";
 
 import styles from "../pages/Shop/styles.module.css";
 
-// We use the number property for two reasons:
-// 1) in each object because the React documentation
-// recommends against using the same id to map over an object as well as using it
-// for other things.
-// 2) Each cart item has it's own child route, and an ID is needed to display each
-// child route. Because we already have an ID when mapping over the watchObjects, it is
-// called number here instead
-
 export const productData = [
   {
     id: uniqid(),

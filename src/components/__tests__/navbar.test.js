@@ -5,8 +5,6 @@ import { MemoryRouter } from "react-router-dom";
 import { NavBar } from "../NavBar";
 import { RouteSwitch } from "../../routes/RouteSwitch";
 import { App } from "../../App";
-import { createMemoryHistory } from "@remix-run/router";
-import { Router } from "react-router-dom";
 
 const cartLength = 3;
 

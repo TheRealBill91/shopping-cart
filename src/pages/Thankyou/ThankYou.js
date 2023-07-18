@@ -12,7 +12,11 @@ export const ThankYou = () => {
   };
 
   useEffect(() => {
-    setTimeout(directToShopPage, 3000);
+    const timer = setTimeout(directToShopPage, 3500);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [navigate]);
 
   return (

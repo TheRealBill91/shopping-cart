@@ -1,9 +1,8 @@
 import { ItemLayout } from "./ItemLayout";
-import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 
 export const Shop = (props) => {
-  const { watchData, addWatchToCart, cartLength } = props;
+  const { watchData, addWatchToCart } = props;
   // const [pageVisible, setPageVisible] = useState(false);
 
   // useEffect(() => {

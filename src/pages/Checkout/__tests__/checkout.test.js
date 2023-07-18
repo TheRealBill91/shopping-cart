@@ -1,12 +1,10 @@
-import { render, screen, waitFor, rerender } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { MemoryRouter } from "react-router-dom";
-import { RouteSwitch } from "../routes/RouteSwitch";
-import { App } from "../App";
-import { useEffect, useState } from "react";
-import { Checkout } from "../pages/Checkout/Checkout";
+import { TestApp } from "../../../mockComponents/TestApp";
 import { act } from "react-dom/test-utils";
+import { Checkout } from "../Checkout";
 
 test("calculates correct order total", () => {
   render(
@@ -17,7 +15,7 @@ test("calculates correct order total", () => {
   expect(screen.getByText(/total: \$1745.00/i)).toBeInTheDocument();
 });
 
-describe("checkout", () => {
+describe("checkout process", () => {
   beforeEach(() => {
     jest.useFakeTimers();
   });
@@ -90,34 +88,7 @@ describe("checkout", () => {
   });
 });
 
-describe("add to cart button", () => {
-  test("adds item to cart", async () => {
-    render(
-      <MemoryRouter initialEntries={["/shop/leathertimekeeper"]}>
-        <App />
-      </MemoryRouter>
-    );
-    const user = userEvent.setup();
-
-    await user.click(screen.getByText(/add to cart/i));
-
-    await user.click(screen.getByRole("link", { name: "cartLink" }));
-    expect(screen.getByText(/Check out/)).toBeInTheDocument();
-    expect(screen.getByText(/Leather Timekeeper/)).toBeInTheDocument();
-  });
-
-  test("calculates correct number of cart items", () => {
-    render(
-      <MemoryRouter>
-        <TestApp />
-      </MemoryRouter>
-    );
-
-    expect(screen.getByTestId("cart-length")).toHaveTextContent(5);
-  });
-});
-
-describe("checkout tests", () => {
+describe("checkout page", () => {
   test("empty cart renders empty cart message", () => {
     render(
       <MemoryRouter initialEntries={["/checkout"]}>
@@ -145,7 +116,6 @@ describe("checkout tests", () => {
         <Checkout cartItems={cartItems} />
       </MemoryRouter>
     );
-    screen.debug();
     expect(screen.getByText(/leather watch/)).toBeInTheDocument();
     expect(screen.getByText(/silver watch/)).toBeInTheDocument();
   });
@@ -231,133 +201,3 @@ describe("checkout tests", () => {
     expect(screen.getByText(/Shopping page!/)).toBeInTheDocument();
   });
 });
-
-const TestApp = () => {
-  const initialCartItems = [
-    {
-      id: 1,
-      watchName: "leather watch",
-      quantity: 1,
-      price: 449,
-    },
-    {
-      id: 2,
-      watchName: "silver watch",
-      quantity: 3,
-      price: 299,
-    },
-    {
-      id: 3,
-      watchName: "rose gold watch",
-      quantity: 1,
-      price: 399,
-    },
-  ];
-  const [cartItems, setCartItems] = useState(initialCartItems);
-  const [cartTotal, setCartTotal] = useState();
-
-  const removeWatchFromCart = (watchItem) => {
-    setCartItems(cartItems.filter((cartItem) => cartItem.id !== watchItem.id));
-  };
-
-  const incrementCartItemQty = (cartItem) => {
-    const newCartItems = cartItems.map((item) => {
-      if (item.id === cartItem.id) {
-        return { ...item, quantity: item.quantity + 1 };
-      } else {
-        return item;
-      }
-    });
-
-    setCartItems(newCartItems);
-  };
-
-  const decrementCartItemQty = (cartItem) => {
-    if (cartItem.quantity === 1) {
-      const newCartItems = cartItems.filter((item) => {
-        return item.id !== cartItem.id;
-      });
-      setCartItems(newCartItems);
-      return;
-    } else {
-      const newCartItems = cartItems.map((item) => {
-        if (item.id === cartItem.id) {
-          return { ...item, quantity: item.quantity - 1 };
-        } else {
-          return item;
-        }
-      });
-
-      setCartItems(newCartItems);
-    }
-  };
-
-  const handleItemQuantityInput = (e, cartItem) => {
-    const inputValue = +e.target.value;
-    if (typeof inputValue !== "number") {
-      console.log("must be a number");
-      return;
-    } else if (inputValue < 1) {
-      console.log("value must be greater than 0");
-      return;
-    }
-
-    const newCartItems = cartItems.map((item) => {
-      if (item.id === cartItem.id) {
-        return { ...item, quantity: inputValue };
-      } else {
-        return item;
-      }
-    });
-
-    setCartItems(newCartItems);
-  };
-
-  const numberOfCartItems = () => {
-    const length = cartItems.reduce(
-      (accumulator, currentValue) => accumulator + currentValue.quantity * 1,
-      0
-    );
-    return length;
-  };
-
-  const cartLength = numberOfCartItems();
-
-  const calculateCartTotal = () => {
-    const cartTotal = cartItems.reduce(
-      (accumulator, currentValue) =>
-        accumulator + currentValue.price * currentValue.quantity,
-      0
-    );
-    const roundedCartTotal = cartTotal.toFixed(2);
-    setCartTotal(roundedCartTotal);
-  };
-
-  const resetShoppingCart = () => {
-    setCartItems([]);
-    setCartTotal();
-  };
-
-  useEffect(() => {
-    calculateCartTotal();
-  }, [cartItems]);
-
-  useEffect(() => {
-    calculateCartTotal();
-  }, []);
-
-  return (
-    <>
-      <RouteSwitch
-        cartItems={cartItems}
-        removeWatchFromCart={removeWatchFromCart}
-        incrementCartItemQty={incrementCartItemQty}
-        decrementCartItemQty={decrementCartItemQty}
-        handleItemQuantityInput={handleItemQuantityInput}
-        cartLength={cartLength}
-        cartTotal={cartTotal}
-        resetShoppingCart={resetShoppingCart}
-      ></RouteSwitch>
-    </>
-  );
-};

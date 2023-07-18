@@ -3,7 +3,6 @@ import { RouteSwitch } from "./routes/RouteSwitch";
 import { productData } from "./data/ProductData";
 import "./assets/styles/globalStyles.module.css";
 import "./assets/styles/normalize.css";
-import { BrowserRouter } from "react-router-dom";
 
 export const App = () => {
   const [watchData, setWatchData] = useState(productData);

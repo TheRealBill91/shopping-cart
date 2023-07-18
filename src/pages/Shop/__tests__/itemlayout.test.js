@@ -2,14 +2,10 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { MemoryRouter } from "react-router-dom";
-import { ItemPreview } from "../ItemPreview";
-import { Route } from "react-router-dom";
-import { Item } from "../Item";
 import { RouteSwitch } from "../../../routes/RouteSwitch";
-import { Shop } from "../Shop";
-import { createMemoryHistory } from "@remix-run/router";
 import { ItemLayout } from "../ItemLayout";
-import styles from "../styles.module.css";
+
+beforeEach(() => {});
 
 test("navigate to shop item child route", async () => {
   const watchData = [
@@ -31,8 +27,6 @@ test("navigate to shop item child route", async () => {
   ];
   const user = userEvent.setup();
 
-  const addWatchToCart = jest.fn();
-  const history = createMemoryHistory();
   render(
     <MemoryRouter initialEntries={["/shop"]}>
       <RouteSwitch watchData={watchData} />

@@ -1,5 +1,5 @@
 import styles from "./styles.module.css";
-import { QuantityIncrementer } from "../../components/ui/QuantityIncrementer";
+import { QuantityChanger } from "../../components/ui/QuantityChanger";
 import { RemoveItemBtn } from "./RemoveItemBtn";
 
 export const CartItem = (props) => {
@@ -19,7 +19,7 @@ export const CartItem = (props) => {
         </section>
         <div className={styles.itemInfoContainer}>
           <h3 className={styles.checkoutItemH3}>{cartItem.watchName}</h3>
-          <QuantityIncrementer
+          <QuantityChanger
             incrementCartItemQty={incrementCartItemQty}
             decrementCartItemQty={decrementCartItemQty}
             handleItemQuantityInput={handleItemQuantityInput}
