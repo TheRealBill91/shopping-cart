@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/shopping-cart/static/css/main.c364014f.css",
+    "main.js": "/shopping-cart/static/js/main.1fe3786b.js",
+    "static/media/elegantMesh.jpg": "/shopping-cart/static/media/elegantMesh.1c64b8d39fa8f87b3599.jpg",
+    "static/media/silverClassic.jpg": "/shopping-cart/static/media/silverClassic.6ff491e2b2735c6eaaed.jpg",
+    "static/media/goldPrestige.jpg": "/shopping-cart/static/media/goldPrestige.061e0fab369b88e6404d.jpg",
+    "static/media/desertRose.jpg": "/shopping-cart/static/media/desertRose.e918f6f88e7c21a1c0db.jpg",
+    "static/media/blueHorizon.jpg": "/shopping-cart/static/media/blueHorizon.593e2ff1087f11a96973.jpg",
+    "static/media/woodland.jpg": "/shopping-cart/static/media/woodland.f87f2079e25cfd0586df.jpg",
+    "static/media/leatherTimekeeper.jpg": "/shopping-cart/static/media/leatherTimekeeper.3169778b5e33b497c0a5.jpg",
+    "static/media/chronographClassic.jpg": "/shopping-cart/static/media/chronographClassic.807550787da7587fec22.jpg",
+    "static/media/Montserrat-VariableFont_wght.ttf": "/shopping-cart/static/media/Montserrat-VariableFont_wght.3faa3eef13649db02044.ttf",
+    "static/media/homeCover.jpg": "/shopping-cart/static/media/homeCover.ec237a1b62f1bcc516ba.jpg",
+    "static/media/blackEdition.jpg": "/shopping-cart/static/media/blackEdition.eea82adb98de10ca95fe.jpg",
+    "static/media/Merriweather-Regular.ttf": "/shopping-cart/static/media/Merriweather-Regular.da67ca8c38ef44c4773d.ttf",
+    "index.html": "/shopping-cart/index.html",
+    "static/media/icons.svg": "/shopping-cart/static/media/icons.67f81077a568860143fef6400aef3078.svg",
+    "main.c364014f.css.map": "/shopping-cart/static/css/main.c364014f.css.map",
+    "main.1fe3786b.js.map": "/shopping-cart/static/js/main.1fe3786b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c364014f.css",
+    "static/js/main.1fe3786b.js"
+  ]
+}
