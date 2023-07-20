@@ -1,10 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
-import { BrowserRouter, MemoryRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { Header } from "../Header";
-import { Shop } from "../../pages/Shop/Shop";
-import { RouteSwitch } from "../../routes/RouteSwitch";
+import { TestApp } from "../../mockComponents/TestApp";
 
 test("render header text logo", () => {
   render(<Header />, { wrapper: MemoryRouter });
@@ -13,11 +12,7 @@ test("render header text logo", () => {
 });
 
 test("navigate to home page with text logo", async () => {
-  render(
-    <MemoryRouter initialEntries={["/shop"]}>
-      <RouteSwitch />
-    </MemoryRouter>
-  );
+  render(<TestApp initialEntries="/shop" />);
   const user = userEvent.setup();
 
   expect(

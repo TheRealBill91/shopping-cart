@@ -3,8 +3,8 @@ import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { MemoryRouter } from "react-router-dom";
 import { NavBar } from "../NavBar";
-import { RouteSwitch } from "../../routes/RouteSwitch";
-import { App } from "../../App";
+import { TestApp } from "../../mockComponents/TestApp";
+import { test, expect } from "vitest";
 
 const cartLength = 3;
 
@@ -13,12 +13,10 @@ test("renders the correct number of items in cart on screen", () => {
   expect(screen.getByTestId("cart-length")).toBeInTheDocument(3);
 });
 
+test("dynamically renders correct number of items in cart on screen", () => {});
+
 test("navigate to home page with home link", async () => {
-  render(
-    <MemoryRouter initialEntries={["/shop"]}>
-      <RouteSwitch />
-    </MemoryRouter>
-  );
+  render(<TestApp initialEntries={["/shop"]} />);
 
   const user = userEvent.setup();
   expect(
@@ -32,11 +30,7 @@ test("navigate to home page with home link", async () => {
 });
 
 test("navigate to shop page using shop link in nav bar", async () => {
-  render(
-    <MemoryRouter initialEntries={["/"]}>
-      <RouteSwitch />
-    </MemoryRouter>
-  );
+  render(<TestApp initialEntries="/" />);
 
   const user = userEvent.setup();
 
@@ -48,11 +42,7 @@ test("navigate to shop page using shop link in nav bar", async () => {
 });
 
 test("navigate to checkout page using cartNav link", async () => {
-  render(
-    <MemoryRouter initialEntries={["/"]}>
-      <App />
-    </MemoryRouter>
-  );
+  render(<TestApp initialEntries="/" />);
 
   const user = userEvent.setup();
   expect(
@@ -62,5 +52,5 @@ test("navigate to checkout page using cartNav link", async () => {
   expect(
     screen.queryByText(/Premium watches, engineered to perfection/)
   ).not.toBeInTheDocument();
-  expect(screen.getByText("Your cart is empty...")).toBeInTheDocument();
+  expect(screen.getByText(/Check out/)).toBeInTheDocument();
 });

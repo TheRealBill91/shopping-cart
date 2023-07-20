@@ -1,8 +1,10 @@
 import { ItemPreview } from "./ItemPreview";
 import styles from "./styles.module.css";
+import { ShopContext } from "../../context/ShopContext";
+import { useContext } from "react";
 
-export const ItemLayout = (props) => {
-  const { watchData, addWatchToCart } = props;
+export const ItemLayout = () => {
+  const { watchData, addWatchToCart } = useContext(ShopContext);
 
   return (
     <section className={styles.itemLayout}>

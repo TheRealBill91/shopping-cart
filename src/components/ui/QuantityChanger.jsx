@@ -1,12 +1,14 @@
+import { useContext } from "react";
 import styles from "../styles.module.css";
+import { CartContext } from "../../context/CartContext";
 
 export const QuantityChanger = (props) => {
+  const { cartItem } = props;
   const {
-    cartItem,
     incrementCartItemQty,
     decrementCartItemQty,
     handleItemQuantityInput,
-  } = props;
+  } = useContext(CartContext);
   return (
     <div className={styles.quantityIncrementerContainer}>
       <button

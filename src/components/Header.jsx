@@ -1,6 +1,6 @@
 import { NavBar } from "./NavBar";
 import styles from "./styles.module.css";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export const Header = (props) => {
   const { cartLength } = props;

@@ -1,9 +1,11 @@
 import { NavLink } from "react-router-dom";
 import styles from "./styles.module.css";
-import { Icon } from "../components/ui/Icon";
+import { Icon } from "./ui/Icon";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
-export const NavBar = (props) => {
-  const { cartLength } = props;
+export const NavBar = () => {
+  const { cartLength } = useContext(CartContext);
   return (
     <nav id="navLinks">
       <ul className={styles.ul}>

@@ -3,6 +3,8 @@ import { RouteSwitch } from "./routes/RouteSwitch";
 import { productData } from "./data/ProductData";
 import "./assets/styles/globalStyles.module.css";
 import "./assets/styles/normalize.css";
+import { ShopContext } from "./context/ShopContext";
+import { CartContext } from "./context/CartContext";
 
 export const App = () => {
   const [watchData, setWatchData] = useState(productData);
@@ -20,13 +22,22 @@ export const App = () => {
   const cartLength = numberOfCartItems();
 
   useEffect(() => {
+    const calculateCartTotal = () => {
+      const cartTotal = cartItems.reduce(
+        (accumulator, currentValue) =>
+          accumulator + currentValue.price * currentValue.quantity,
+        0
+      );
+      const roundedCartTotal = cartTotal.toFixed(2);
+      setCartTotal(roundedCartTotal);
+    };
+
     calculateCartTotal();
   }, [cartItems]);
 
   const removeWatchFromCart = (watchItem) => {
     setCartItems(cartItems.filter((cartItem) => cartItem.id !== watchItem.id));
   };
-
   const addWatchToCart = (watchItem) => {
     const targetWatchItem = watchData.find((item) => {
       return item.id === watchItem.id;
@@ -72,7 +83,6 @@ export const App = () => {
   const incrementCartItemQty = (cartItem) => {
     const newCartItems = cartItems.map((item) => {
       if (item.id === cartItem.id) {
-        console.log(item);
         return { ...item, quantity: item.quantity + 1 };
       } else {
         return item;
@@ -123,37 +133,30 @@ export const App = () => {
     setCartItems(newCartItems);
   };
 
-  const calculateCartTotal = () => {
-    const cartTotal = cartItems.reduce(
-      (accumulator, currentValue) =>
-        accumulator + currentValue.price * currentValue.quantity,
-      0
-    );
-    const roundedCartTotal = cartTotal.toFixed(2);
-    setCartTotal(roundedCartTotal);
-  };
-
   const resetShoppingCart = () => {
     setCartItems([]);
     setCartTotal();
     setWatchData(productData);
   };
 
+  const cartContextValues = {
+    cartItems,
+    cartTotal,
+    cartLength,
+    removeWatchFromCart,
+    incrementCartItemQty,
+    decrementCartItemQty,
+    handleItemQuantityInput,
+    resetShoppingCart,
+  };
+
   return (
     <>
-      <RouteSwitch
-        addWatchToCart={addWatchToCart}
-        removeWatchFromCart={removeWatchFromCart}
-        cartItems={cartItems}
-        watchData={watchData}
-        cartLength={cartLength}
-        cartTotal={cartTotal}
-        incrementCartItemQty={incrementCartItemQty}
-        decrementCartItemQty={decrementCartItemQty}
-        handleItemQuantityInput={handleItemQuantityInput}
-        setWatchData={setWatchData}
-        resetShoppingCart={resetShoppingCart}
-      />
+      <CartContext.Provider value={cartContextValues}>
+        <ShopContext.Provider value={{ addWatchToCart, watchData }}>
+          <RouteSwitch />
+        </ShopContext.Provider>
+      </CartContext.Provider>
     </>
   );
 };

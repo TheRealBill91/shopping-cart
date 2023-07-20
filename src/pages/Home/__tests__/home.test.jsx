@@ -2,11 +2,10 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import React from "react";
-import { MemoryRouter } from "react-router-dom";
 import { RouteSwitch } from "../../../routes/RouteSwitch";
 
 test("render Home page/navigation to shop page", async () => {
-  render(<RouteSwitch />, { wrapper: MemoryRouter });
+  render(<RouteSwitch />);
   const user = userEvent.setup();
 
   expect(

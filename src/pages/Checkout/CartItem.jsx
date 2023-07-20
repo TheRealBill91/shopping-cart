@@ -3,13 +3,7 @@ import { QuantityChanger } from "../../components/ui/QuantityChanger";
 import { RemoveItemBtn } from "./RemoveItemBtn";
 
 export const CartItem = (props) => {
-  const {
-    cartItem,
-    incrementCartItemQty,
-    decrementCartItemQty,
-    handleItemQuantityInput,
-    removeWatchFromCart,
-  } = props;
+  const { cartItem } = props;
 
   return (
     <>
@@ -19,23 +13,10 @@ export const CartItem = (props) => {
         </section>
         <div className={styles.itemInfoContainer}>
           <h3 className={styles.checkoutItemH3}>{cartItem.watchName}</h3>
-          <QuantityChanger
-            incrementCartItemQty={incrementCartItemQty}
-            decrementCartItemQty={decrementCartItemQty}
-            handleItemQuantityInput={handleItemQuantityInput}
-            cartItem={cartItem}
-          />
+          <QuantityChanger cartItem={cartItem} />
         </div>
-        <RemoveItemBtn
-          cartItem={cartItem}
-          removeWatchFromCart={removeWatchFromCart}
-        />
+        <RemoveItemBtn cartItem={cartItem} />
       </div>
     </>
   );
 };
-
-//watch name
-//price
-//quantity
-//image

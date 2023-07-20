@@ -2,14 +2,17 @@ import { AddToCartButton } from "../../components/ui/AddCartButton";
 import { BackToShopBtn } from "../../components/ui/BackToShopBtn";
 import { useLocation } from "react-router-dom";
 import styles from "./styles.module.css";
+import { useContext } from "react";
+import { ShopContext } from "../../context/ShopContext";
 
-export const Item = (props) => {
-  const { addWatchToCart, watchData } = props;
+export const Item = () => {
+  const { watchData, addWatchToCart } = useContext(ShopContext);
   const itemLinkLocation = useLocation();
   const itemNameLink = itemLinkLocation.pathname.slice(6);
   const targetWatchItem = watchData.find((item) => {
     return item.watchName.split(" ").join("").toLowerCase() === itemNameLink;
   });
+
   return (
     <main className={styles.itemMain}>
       <BackToShopBtn />

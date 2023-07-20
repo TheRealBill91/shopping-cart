@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { MemoryRouter } from "react-router-dom";
 import { productData } from "../../../data/ProductData";
 import { Item } from "../Item";
+import { ShopContext } from "../../../context/ShopContext";
 
 const watchData = productData.slice(0, 2);
 
@@ -13,7 +13,9 @@ test("renders targetWatchItem properties", () => {
 
   render(
     <MemoryRouter initialEntries={[`/shop/${itemNameLink}`]}>
-      <Item watchData={watchData} />
+      <ShopContext.Provider value={{ watchData }}>
+        <Item watchData={watchData} />
+      </ShopContext.Provider>
     </MemoryRouter>
   );
 
