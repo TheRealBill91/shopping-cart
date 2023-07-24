@@ -29,6 +29,10 @@ a h1:hover {
 
 /* NavBar.js styles */
 
+.desktopNavLinks {
+  display: block;
+}
+
 ul {
   display: flex;
   gap: 20px;
@@ -72,6 +76,14 @@ ul {
 .checkoutLinkContainer {
   position: relative;
   height: 54px;
+}
+
+ul.mobileMenu {
+  display: none;
+}
+
+.mobileMenuBtn {
+  display: none;
 }
 
 /* Quantity incrementer styles */
@@ -154,7 +166,9 @@ input[type="number"]::-webkit-outer-spin-button {
   padding: 10px;
   box-shadow: 0px 2px 3px #76767669;
   margin-bottom: 12px;
-  transition: background-color 0.1s linear, color 0.1s linear;
+  transition:
+    background-color 0.1s linear,
+    color 0.1s linear;
   width: 130px;
 }
 
@@ -186,7 +200,9 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 1.1rem;
   color: rgb(255, 255, 255);
   align-self: center;
-  transition: background-color 0.1s linear, color 0.1s linear;
+  transition:
+    background-color 0.1s linear,
+    color 0.1s linear;
   flex: 0 0 auto;
 }
 
@@ -210,4 +226,72 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .shoppingCart:hover {
   color: black;
+}
+
+.listMenu {
+  width: 35px;
+  height: 35px;
+  color: rgb(41, 41, 41);
+}
+
+@media only screen and (max-device-width: 812px) {
+  .backToShopBtn {
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 8px;
+    align-self: flex-start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 115px;
+    color: #292929;
+    transition: all 0.1s linear;
+    font-size: 0.9rem;
+    padding: 2px;
+  }
+
+  .mobileMenuBtn {
+    border: none;
+  }
+
+  .mobileMenuOverlay {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    background-color: #4e4e4e6b;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+    position: fixed;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+  }
+
+  ul.mobileMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0;
+    width: 60%;
+    height: 60%;
+  }
+
+  .mobileNavLink {
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  .desktopNavLinks {
+    display: none;
+  }
+
+  button.mobileMenuBtn {
+    display: block
+  }
+
+  ;
 }

@@ -17,7 +17,7 @@ export const NavBar = () => {
   }, [cartItems]);
 
   return (
-    <nav id="navLinks">
+    <nav className={styles.desktopNavLinks}>
       <ul className={styles.ul}>
         <li className={styles.li}>
           <NavLink className={styles.navLink} to={"/"}>
