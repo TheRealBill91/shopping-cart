@@ -59,17 +59,19 @@ ul {
   position: relative;
   height: 41px;
   transition: all 0.04s linear;
+  top: 6px;
 }
 
 .cartLength {
   position: absolute;
-  top: -20%;
-  left: 70%;
+  top: -2%;
+  left: 80%;
   font-size: 0.9rem;
 }
 
 .checkoutLinkContainer {
   position: relative;
+  height: 54px;
 }
 
 /* Quantity incrementer styles */
@@ -109,6 +111,10 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+.labelHidden {
+  display: none;
+}
+
 /* BackToShopBtn.js styles */
 
 .backToShopBtn {
@@ -141,7 +147,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .addToCartBtn {
   background-color: #6f6f6f;
   border-radius: 8px;
-  color: #ebebeb;
+  color: #f5f5f5;
   font-size: 1.2rem;
   border: none;
   width: 35%;

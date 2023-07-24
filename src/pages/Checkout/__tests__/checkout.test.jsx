@@ -92,10 +92,10 @@ describe("checkout process", () => {
 
 describe("checkout page", () => {
   test("empty cart renders empty cart message", () => {
-    const cartLength = 0;
+    const cartItems = [];
     render(
       <MemoryRouter initialEntries={["/checkout"]}>
-        <CartContext.Provider value={{ cartLength }}>
+        <CartContext.Provider value={{ cartItems }}>
           <Checkout />
         </CartContext.Provider>
       </MemoryRouter>
@@ -119,7 +119,7 @@ describe("checkout page", () => {
     render(
       <MemoryRouter initialEntries={["/checkout"]}>
         <CartContext.Provider value={{ cartItems }}>
-          <CartItemLayout />
+          <Checkout />
         </CartContext.Provider>
       </MemoryRouter>
     );
@@ -167,8 +167,9 @@ describe("checkout page", () => {
     render(<TestApp initialEntries="/checkout" />);
     const user = userEvent.setup();
     const leatherWatchInput = screen.getAllByRole("spinbutton", {
-      name: "quantity-input",
+      name: "quantityInput",
     })[0];
+
     expect(screen.getAllByDisplayValue(1)).toHaveLength(2);
     await user.type(leatherWatchInput, "4");
     expect(leatherWatchInput).toHaveValue(14);

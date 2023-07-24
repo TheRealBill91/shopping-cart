@@ -6,15 +6,12 @@ import { ItemLayout } from "../ItemLayout";
 import { ShopContext } from "../../../context/ShopContext";
 import { expect, test } from "vitest";
 import { TestApp } from "../../../mockComponents/TestApp";
+import { Shop } from "../Shop";
 
 test("navigate to shop item child route", async () => {
   const user = userEvent.setup();
 
-  render(
-    <TestApp initialEntries="/shop">
-      <ItemLayout />
-    </TestApp>
-  );
+  render(<TestApp initialEntries="/shop"></TestApp>);
 
   await user.click(screen.getByRole("link", { name: "leather watch $449" }));
   expect(
@@ -48,7 +45,7 @@ test("item layout renders the correct number of item preview cards", () => {
   render(
     <MemoryRouter>
       <ShopContext.Provider value={{ watchData }}>
-        <ItemLayout />
+        <Shop />
       </ShopContext.Provider>
     </MemoryRouter>
   );

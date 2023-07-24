@@ -4,6 +4,7 @@ import { CartContext } from "../../context/CartContext";
 
 export const QuantityChanger = (props) => {
   const { cartItem } = props;
+
   const {
     incrementCartItemQty,
     decrementCartItemQty,
@@ -18,9 +19,10 @@ export const QuantityChanger = (props) => {
         -
       </button>
       <input
+        aria-label="quantityInput"
         min={1}
         name="quantity"
-        title="quantity-input"
+        title="quantityInput"
         type="number"
         value={cartItem.quantity}
         onChange={(e) => handleItemQuantityInput(e, cartItem)}

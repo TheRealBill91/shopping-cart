@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { RouteSwitch } from "../routes/RouteSwitch";
+import { useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { CartContext } from "../context/CartContext";
 import { Checkout } from "../pages/Checkout/Checkout";
@@ -37,7 +36,6 @@ export const TestApp = (props) => {
     },
   ];
   const [cartItems, setCartItems] = useState(initialCartItems);
-  const [cartTotal, setCartTotal] = useState();
 
   const watchData = initialCartItems;
 
@@ -98,56 +96,9 @@ export const TestApp = (props) => {
     setCartItems(newCartItems);
   };
 
-  const numberOfCartItems = () => {
-    const length = cartItems.reduce(
-      (accumulator, currentValue) => accumulator + currentValue.quantity * 1,
-      0
-    );
-    return length;
-  };
-
-  const cartLength = numberOfCartItems();
-
-  const calculateCartTotal = () => {
-    const cartTotal = cartItems.reduce(
-      (accumulator, currentValue) =>
-        accumulator + currentValue.price * currentValue.quantity,
-      0
-    );
-    const roundedCartTotal = cartTotal.toFixed(2);
-    setCartTotal(roundedCartTotal);
-  };
-
   const resetShoppingCart = () => {
     setCartItems([]);
-    setCartTotal();
   };
-
-  useEffect(() => {
-    const calculateCartTotal = () => {
-      const cartTotal = cartItems.reduce(
-        (accumulator, currentValue) =>
-          accumulator + currentValue.price * currentValue.quantity,
-        0
-      );
-      const roundedCartTotal = cartTotal.toFixed(2);
-      setCartTotal(roundedCartTotal);
-    };
-    calculateCartTotal();
-  }, [cartItems]);
-
-  useEffect(() => {
-    const calculateCartTotal = () => {
-      const cartTotal = cartItems.reduce(
-        (accumulator, currentValue) =>
-          accumulator + currentValue.price * currentValue.quantity,
-        0
-      );
-      const roundedCartTotal = cartTotal.toFixed(2);
-      setCartTotal(roundedCartTotal);
-    };
-    calculateCartTotal();
-  }, []);
 
   const checkForDuplicateCartItems = (targetWatchItem) => {
     const duplicateItem = cartItems.find((item) => {
@@ -193,8 +144,6 @@ export const TestApp = (props) => {
 
   const cartContextValues = {
     cartItems,
-    cartTotal,
-    cartLength,
     removeWatchFromCart,
     incrementCartItemQty,
     decrementCartItemQty,

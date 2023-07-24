@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RouteSwitch } from "./routes/RouteSwitch";
 import { productData } from "./data/ProductData";
 import "./assets/styles/globalStyles.module.css";
@@ -9,31 +9,6 @@ import { CartContext } from "./context/CartContext";
 export const App = () => {
   const [watchData, setWatchData] = useState(productData);
   const [cartItems, setCartItems] = useState([]);
-  const [cartTotal, setCartTotal] = useState();
-
-  const numberOfCartItems = () => {
-    const length = cartItems.reduce(
-      (accumulator, currentValue) => accumulator + currentValue.quantity * 1,
-      0
-    );
-    return length;
-  };
-
-  const cartLength = numberOfCartItems();
-
-  useEffect(() => {
-    const calculateCartTotal = () => {
-      const cartTotal = cartItems.reduce(
-        (accumulator, currentValue) =>
-          accumulator + currentValue.price * currentValue.quantity,
-        0
-      );
-      const roundedCartTotal = cartTotal.toFixed(2);
-      setCartTotal(roundedCartTotal);
-    };
-
-    calculateCartTotal();
-  }, [cartItems]);
 
   const removeWatchFromCart = (watchItem) => {
     setCartItems(cartItems.filter((cartItem) => cartItem.id !== watchItem.id));
@@ -135,14 +110,11 @@ export const App = () => {
 
   const resetShoppingCart = () => {
     setCartItems([]);
-    setCartTotal();
     setWatchData(productData);
   };
 
   const cartContextValues = {
     cartItems,
-    cartTotal,
-    cartLength,
     removeWatchFromCart,
     incrementCartItemQty,
     decrementCartItemQty,

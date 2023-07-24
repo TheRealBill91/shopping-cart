@@ -26,9 +26,5 @@ test("renders targetWatchItem properties", () => {
     )
   ).toBeInTheDocument();
   expect(screen.getByText(/385.43/)).toBeInTheDocument();
-  expect(
-    screen.getByAltText(
-      /A photo of a Calvin Klein wristwatch with a black face, silver hands and hour markers, and a black mesh strap, resting on its side on a yellow background./
-    )
-  ).toBeInTheDocument();
+  expect(screen.getByAltText(/Calvin Klein wristwatch/)).toBeInTheDocument();
 });

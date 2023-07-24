@@ -3,9 +3,19 @@ import styles from "./styles.module.css";
 import { Icon } from "./ui/Icon";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { useMemo } from "react";
 
 export const NavBar = () => {
-  const { cartLength } = useContext(CartContext);
+  const { cartItems } = useContext(CartContext);
+
+  const cartLength = useMemo(() => {
+    const numberOfCartItems = cartItems.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.quantity * 1,
+      0
+    );
+    return numberOfCartItems;
+  }, [cartItems]);
+
   return (
     <nav id="navLinks">
       <ul className={styles.ul}>
@@ -26,9 +36,9 @@ export const NavBar = () => {
             className={styles.navLink3}
             to={"/checkout"}
           >
-            <div className={styles.cartLength} data-testid="cart-length">
+            <sup className={styles.cartLength} data-testid="cart-length">
               {cartLength}
-            </div>
+            </sup>
             <Icon id="shoppingcart" className={styles.shoppingCart} />
           </NavLink>
         </li>

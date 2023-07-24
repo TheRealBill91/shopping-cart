@@ -19,14 +19,14 @@ This project is a shopping cart application built with React. The purpose of thi
 
 - Planning component and folder structure for a React application
 - Setting up routes using react-router-dom
-- Managing state for a shopping cart
+- Managing state using the context hook
 - Testing a React application using the React Testing Library
 
 ## Tools Used
 
 - [React](https://react.dev/)
 - [react-router-dom](https://reactrouter.com/en/main)
-- [create-react-app](https://create-react-app.dev/)
+- [Vite](https://vitejs.dev/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 - [Phosphor Icons](https://phosphoricons.com/)
 

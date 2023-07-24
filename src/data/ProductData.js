@@ -22,8 +22,7 @@ export const productData = [
     inCart: false,
     productImage: elegantMesh,
     previewImgStyle: styles.elegantMeshImg,
-    imageAlt:
-      "A photo of a Calvin Klein wristwatch with a black face, silver hands and hour markers, and a black mesh strap, resting on its side on a yellow background.",
+    imageAlt: "Calvin Klein wristwatch",
   },
   {
     id: uniqid(),
@@ -35,8 +34,7 @@ export const productData = [
     inCart: false,
     productImage: chronographClassic,
     previewImgStyle: styles.chronographClassic,
-    imageAlt:
-      "A photo of a silver wristwatch with a black face, white markings, three subdials, a tachymeter, and a date window, resting on a textured gray surface.",
+    imageAlt: "Silver wristwatch with a black face",
   },
   {
     id: uniqid(),
@@ -48,7 +46,7 @@ export const productData = [
     inCart: false,
     productImage: goldPrestige,
     previewImgStyle: styles.goldPrestige,
-    imageAlt: "Watch with white face, gold casing, and black leather strap",
+    imageAlt: "Gold watch",
   },
   {
     id: uniqid(),
@@ -60,8 +58,7 @@ export const productData = [
     inCart: false,
     productImage: desertRose,
     previewImgStyle: styles.desertRose,
-    imageAlt:
-      "A rose gold watch with black hands on a bed of succulent plants.",
+    imageAlt: "Rose gold watch",
   },
   {
     id: uniqid(),
@@ -73,8 +70,7 @@ export const productData = [
     inCart: false,
     productImage: silverClassic,
     previewImgStyle: styles.silverClassic,
-    imageAlt:
-      "A silver Timex wristwatch with a white face and black numbers on a black wooden surface.",
+    imageAlt: "A silver Timex wristwatch with a white face",
   },
   {
     id: uniqid(),
@@ -87,7 +83,7 @@ export const productData = [
     productImage: leatherTimekeeper,
     previewImgStyle: styles.leatherTimekeeper,
     imageAlt:
-      "A Seiko watch with a black face and silver hands on a brown leather strap.",
+      "Seiko watch with a black face and silver hands on a brown leather strap.",
   },
   {
     id: uniqid(),
@@ -99,8 +95,7 @@ export const productData = [
     inCart: false,
     productImage: blackEdition,
     previewImgStyle: styles.blackEdition,
-    imageAlt:
-      "A black wristwatch with white vintage style numbers and hands, and three smaller dials within the main dial.",
+    imageAlt: "A black wristwatch with white vintage style numbers and hands",
   },
   {
     id: uniqid(),
@@ -112,8 +107,7 @@ export const productData = [
     inCart: false,
     productImage: blueHorizon,
     previewImgStyle: styles.blueHorizon,
-    imageAlt:
-      "A silver wristwatch with a blue face, black bezel, white numbers and markers, and a date window.",
+    imageAlt: "A silver wristwatch with a blue face",
   },
   {
     id: uniqid(),
@@ -125,7 +119,6 @@ export const productData = [
     inCart: false,
     productImage: woodland,
     previewImgStyle: styles.woodland,
-    imageAlt:
-      "A wooden wristwatch with a tan leather strap and black hands, resting on a bed of green pine needles.",
+    imageAlt: "Wooden wristwatch with a tan leather strap and black hands",
   },
 ];

@@ -13,7 +13,7 @@ export const MainLayout = (props) => {
           isHomePage ? styles.parentWrapperHome : styles.notParentWrapperHome
         }`}
       >
-        <Header cartLength={"1"} />
+        <Header />
         <Outlet />
       </div>
     </>

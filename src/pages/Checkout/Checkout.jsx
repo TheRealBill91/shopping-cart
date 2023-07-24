@@ -6,11 +6,15 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
 export const Checkout = () => {
-  const { cartLength } = useContext(CartContext);
+  const { cartItems } = useContext(CartContext);
   return (
     <main className={styles.checkoutMain}>
       <BackToShopBtn />
-      {cartLength > 0 ? <CartItemLayout /> : <EmptyCartMsg />}
+      {cartItems.length !== 0 ? (
+        <CartItemLayout cartItems={cartItems} />
+      ) : (
+        <EmptyCartMsg />
+      )}
     </main>
   );
 };
