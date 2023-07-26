@@ -54,7 +54,8 @@
 .checkoutMain {
   gap: 16px;
   justify-content: center;
-  padding: 22px;
+  padding: 26px;
+  margin-bottom: 14px;
 }
 
 /* CartItemLayout.js */
@@ -108,7 +109,16 @@
 }
 
 .emptyCartContainer p:first-of-type {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.emptyCartContainer p:last-of-type {
+  margin-left: 28px;
+  margin-right: 28px;
+  padding: 0px 10px;
+  text-align: center;
 }
 
 /* RemoveItemBtn.js styles */
@@ -127,4 +137,55 @@
 .removeItemBtn:hover {
   text-decoration: underline black;
   color: black;
+}
+
+@media only screen and (max-device-width: 812px) {
+  .checkoutItem {
+    flex-direction: column;
+    width: unset;
+    height: unset;
+    min-width: unset;
+    padding: 40px 50px;
+  }
+
+  .cartItemLayoutContainer {
+    width: 95%;
+    max-width: unset;
+    min-width: unset;
+    padding: 34px;
+    gap: 24px;
+    margin-bottom: 14px;
+  }
+
+  .imageContainer {
+    width: unset;
+  }
+
+  .itemInfoContainer {
+    margin-right: unset;
+  }
+
+  .priceAndCheckoutBtnContainer {
+    flex-direction: column;
+    width: unset;
+  }
+
+  .checkoutMain {
+    padding: 32px 36px;
+    gap: 36px;
+  }
+
+  .emptyCartContainer {
+    width: unset;
+    padding: 2px;
+  }
+
+  .emptyCartContainer p {
+    margin-right: 8px;
+    margin-left: 8px;
+  }
+
+  .emptyCartContainer p:last-of-type {
+    text-align: center;
+  }
 }

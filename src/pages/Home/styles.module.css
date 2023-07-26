@@ -49,7 +49,9 @@
   border: none;
   padding: 12px;
   margin-bottom: 12px;
-  transition: background-color 0.1s ease-in, color 0.4s linear;
+  transition:
+    background-color 0.1s ease-in,
+    color 0.4s linear;
   width: 160px;
   display: flex;
   align-items: center;
@@ -68,4 +70,21 @@
 .goToShopBtn:hover {
   background-color: #555555c5;
   transform: scale(1.02);
+}
+
+@media only screen and (max-device-width: 812px) {
+  .welcomeMessage {
+    width: unset;
+    margin: 36px;
+  }
+
+  .homeBackgroundContainer {
+    gap: 30px;
+  }
+
+  .goToShopBtn {
+    width: unset;
+    font-size: 1.8rem;
+    padding: 16px;
+  }
 }

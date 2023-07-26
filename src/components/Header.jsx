@@ -6,18 +6,20 @@ import { useState } from "react";
 import { MobileMenuBtn } from "./ui/MobileMenuBtn";
 
 export const Header = (props) => {
-  const { cartLength, isMobile } = props;
+  const { cartLength } = props;
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuVisible(!mobileMenuVisible);
   };
 
-  console.log(isMobile);
   return (
     <>
       {mobileMenuVisible ? (
-        <MobileMenu toggleMobileMenu={toggleMobileMenu} />
+        <MobileMenu
+          mobileMenuVisible={mobileMenuVisible}
+          toggleMobileMenu={toggleMobileMenu}
+        />
       ) : null}
       <header className={styles.header}>
         <div className={styles.titleAndLogoContainer}>
@@ -26,7 +28,13 @@ export const Header = (props) => {
           </Link>
         </div>
 
-        <MobileMenuBtn toggleMobileMenu={toggleMobileMenu} />
+        {!mobileMenuVisible ? (
+          <MobileMenuBtn
+            mobileMenuVisible={mobileMenuVisible}
+            toggleMobileMenu={toggleMobileMenu}
+          />
+        ) : null}
+
         <NavBar cartLength={cartLength} />
       </header>
     </>

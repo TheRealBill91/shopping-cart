@@ -21,17 +21,10 @@ export const MainLayout = (props) => {
 
   return (
     <>
-      {isMobile === true ? (
-        <div style={disableScroll} className={mainWrapper}>
-          <Header isMobile={isMobile} />
-          <Outlet />
-        </div>
-      ) : (
-        <div className={mainWrapper}>
-          <Header />
-          <Outlet />
-        </div>
-      )}
+      <div className={mainWrapper}>
+        <Header isMobile={isMobile} />
+        <Outlet />
+      </div>
     </>
   );
 };
