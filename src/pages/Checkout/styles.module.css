@@ -52,7 +52,7 @@
 /* Styles for Checkout.js */
 
 .checkoutMain {
-  gap: 16px;
+  gap: 30px;
   justify-content: center;
   padding: 26px;
   margin-bottom: 14px;
@@ -145,7 +145,7 @@
     width: unset;
     height: unset;
     min-width: unset;
-    padding: 40px 50px;
+    padding: 40px 25px;
   }
 
   .cartItemLayoutContainer {
@@ -177,15 +177,26 @@
 
   .emptyCartContainer {
     width: unset;
-    padding: 2px;
+    padding: 24px 14px;
+    height: unset;
   }
 
-  .emptyCartContainer p {
+  .emptyCartContainer p:first-of-type {
     margin-right: 8px;
     margin-left: 8px;
+    font-size: 1.5rem;
   }
 
   .emptyCartContainer p:last-of-type {
     text-align: center;
+    margin: 12px 12px;
+  }
+
+  ._checkoutH2_1y36u_153 {
+    margin: 12px 0px 0px 0px;
+    font-size: 1.6rem;
+    padding: 15px 20px;
+    background-color: darkgrey;
+    border-radius: 16px;
   }
 }

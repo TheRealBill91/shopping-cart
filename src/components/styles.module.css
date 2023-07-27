@@ -296,7 +296,7 @@ input[type="number"]::-webkit-outer-spin-button {
     align-items: center;
     padding: 0;
     width: 60%;
-    height: 60%;
+    height: 65%;
     position: absolute;
     top: 18%;
     left: 22%;
@@ -318,9 +318,9 @@ input[type="number"]::-webkit-outer-spin-button {
   button.mobileMenuBtn {
     display: block;
     border: none;
-    right: 12%;
+    right: 40px;
     opacity: 100%;
-    transform: translateY(10px);
+    transform: translateY(4px);
     transition:
       opacity 0.3s ease-in,
       transform 0.3s ease-in;
@@ -351,6 +351,7 @@ input[type="number"]::-webkit-outer-spin-button {
     height: 100px;
   }
 
-  .quantityIncrementerContainer {
+  .quantityChangeBtn {
+    color: black;
   }
 }

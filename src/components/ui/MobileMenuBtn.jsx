@@ -1,29 +1,19 @@
 import { Icon } from "./Icon";
 import styles from "../styles.module.css";
-import { useEffect, useState } from "react";
 
 export const MobileMenuBtn = (props) => {
   const { toggleMobileMenu, mobileMenuVisible } = props;
-  const [componentVisible, setComponentVisible] = useState(false);
 
-  useEffect(() => {
-    setComponentVisible(true);
-
-    return () => setComponentVisible(false);
-  }, []);
-
-  console.log(mobileMenuVisible);
   const closeMenuStyle = mobileMenuVisible
     ? {
         position: "absolute",
-        marginTop: "14%",
+        marginTop: "20px",
       }
     : null;
 
-  // const mobileMenuBtnStyle =   mobileMenuVisible ?
-
   return (
     <button
+      title="mobile menu button toggle"
       style={closeMenuStyle}
       onClick={toggleMobileMenu}
       className={styles.mobileMenuBtn}

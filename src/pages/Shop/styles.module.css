@@ -28,7 +28,7 @@
 .itemLayout {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 24px;
+  gap: 28px;
   /*  outline: 1px solid black; */
   width: 75vw;
   grid-auto-rows: 325px;
@@ -237,7 +237,7 @@ article p {
 
 @media only screen and (max-device-width: 812px) {
   .shopMain {
-    padding: 3% 4%;
+    padding: 6% 4%;
     gap: 12px;
     margin-bottom: 20px;
   }
@@ -297,5 +297,9 @@ article p {
     font-size: 1.5rem;
     margin-top: 0;
     margin-bottom: 14px;
+  }
+
+  .itemLayout {
+    gap: 30px;
   }
 }

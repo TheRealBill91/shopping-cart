@@ -76,6 +76,7 @@
   .welcomeMessage {
     width: unset;
     margin: 36px;
+    font-size: 2.8rem;
   }
 
   .homeBackgroundContainer {
@@ -84,7 +85,7 @@
 
   .goToShopBtn {
     width: unset;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     padding: 16px;
   }
 }

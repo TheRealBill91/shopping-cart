@@ -7,11 +7,10 @@ import styles from "./styles.module.css";
 export const ThankYou = () => {
   const navigate = useNavigate();
 
-  const directToShopPage = () => {
-    return navigate("/shop");
-  };
-
   useEffect(() => {
+    const directToShopPage = () => {
+      return navigate("/shop");
+    };
     const timer = setTimeout(directToShopPage, 3500);
 
     return () => {
