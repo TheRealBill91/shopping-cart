@@ -24,7 +24,7 @@ export const MobileMenu = ({ toggleMobileMenu, mobileMenuVisible }) => {
           toggleMobileMenu={toggleMobileMenu}
         />
       </nav>
-      <ul className={mobileMenuStyle}>
+      <ul data-testid="mobileMenuUL" className={mobileMenuStyle}>
         <li onClick={toggleMobileMenu}>
           <NavLink className={styles.mobileNavLink} to={"/"}>
             Home

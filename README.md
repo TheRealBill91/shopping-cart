@@ -1,5 +1,7 @@
 # Shopping Cart
 
+[Live Preview]()
+
 ## About
 
 This project is a shopping cart application built with React. The purpose of this project is to practice using React, react-router-dom, Unit & UI testing, as well as other skills learned in The Odin Project curriculum. The application has at least two routes and allows users to navigate between pages with a navigation bar.

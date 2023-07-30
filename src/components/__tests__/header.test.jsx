@@ -4,6 +4,7 @@ import "@testing-library/jest-dom";
 import { MemoryRouter } from "react-router-dom";
 import { Header } from "../Header";
 import { TestApp } from "../../mockComponents/TestApp";
+import { test, expect } from "vitest";
 
 test("render header text logo", () => {
   render(<Header />, { wrapper: MemoryRouter });

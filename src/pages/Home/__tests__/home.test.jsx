@@ -13,5 +13,6 @@ test("render Home page/navigation to shop page", async () => {
   ).toBeInTheDocument();
 
   await user.click(screen.getByText(/Go to Shop/));
+  screen.debug();
   expect(screen.getByText(/Shopping page!/i)).toBeInTheDocument();
 });

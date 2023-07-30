@@ -7,8 +7,6 @@ export const MainLayout = (props) => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
-  const isMobile = window.matchMedia("(max-device-width: 812px)").matches;
-
   const mainWrapper = `${
     isHomePage ? styles.parentWrapperHome : styles.notParentWrapperHome
   }`;
@@ -16,7 +14,7 @@ export const MainLayout = (props) => {
   return (
     <>
       <div className={mainWrapper}>
-        <Header isMobile={isMobile} />
+        <Header />
         <Outlet />
       </div>
     </>
