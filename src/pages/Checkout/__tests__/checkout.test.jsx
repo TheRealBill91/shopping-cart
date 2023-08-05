@@ -5,14 +5,13 @@ import { MemoryRouter } from "react-router-dom";
 import { TestApp } from "../../../mockComponents/TestApp";
 import { act } from "react-dom/test-utils";
 import { Checkout } from "../Checkout";
-import { vi, test, describe, expect, advanceTimers } from "vitest";
-import { beforeEach, afterEach, advanceTimersByTime } from "vitest";
+import { vi, test, describe, expect } from "vitest";
+import { beforeEach, afterEach } from "vitest";
 import { CartContext } from "../../../context/CartContext";
-import { CartItemLayout } from "../CartItemLayout";
 
 test("calculates correct order total", () => {
   render(<TestApp initialEntries="/checkout" />);
-  expect(screen.getByText(/total: \$1745.00/i)).toBeInTheDocument();
+  expect(screen.getByText(/total: \$1,745.00/i)).toBeInTheDocument();
 });
 
 describe("checkout process", () => {

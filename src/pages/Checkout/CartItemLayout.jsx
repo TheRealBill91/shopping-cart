@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 import { QuantityChanger } from "../../components/ui/QuantityChanger";
 import { RemoveItemBtn } from "./RemoveItemBtn";
 import { useMemo } from "react";
+import { dollarFormat } from "../../utilities/dollarFormat";
 
 export const CartItemLayout = ({ cartItems }) => {
   const cartTotal = useMemo(() => {
@@ -12,8 +13,9 @@ export const CartItemLayout = ({ cartItems }) => {
         accumulator + currentValue.price * currentValue.quantity,
       0
     );
-    const roundedCartTotal = calculateCartTotal.toFixed(2);
-    return roundedCartTotal;
+    const dollarFormatter = dollarFormat();
+    const formattedTotal = dollarFormatter.format(calculateCartTotal);
+    return formattedTotal;
   }, [cartItems]);
 
   return (
@@ -34,7 +36,7 @@ export const CartItemLayout = ({ cartItems }) => {
             </CartItem>
           ))}
         <div className={styles.priceAndCheckoutBtnContainer}>
-          <p className={styles.cartTotalPara}>Total: ${cartTotal}</p>
+          <p className={styles.cartTotalPara}>Total: {cartTotal}</p>
           <CheckOutBtn />
         </div>
       </section>

@@ -20,7 +20,7 @@ export const ThankYou = () => {
 
   return (
     <main className={styles.thankYouMain}>
-      <p data-testid="thankYouMessage">
+      <p data-testid="thankYouMessage" className={styles.thankYouMainPara}>
         Thank you for placing an order with <strong>Timeless</strong>
       </p>
     </main>

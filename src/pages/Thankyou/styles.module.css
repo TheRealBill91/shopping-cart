@@ -8,3 +8,17 @@
   padding: 6%;
   text-align: center;
 }
+
+@media only screen and (max-device-width: 812px) {
+  .thankYouMain {
+    position: relative;
+  }
+
+  .thankYouMainPara {
+    position: absolute;
+    bottom: 50%;
+    margin: 0px 24px;
+    padding: 0px 12px;
+    text-wrap: balance;
+  }
+}
